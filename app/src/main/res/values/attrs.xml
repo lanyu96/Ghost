@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--基础色-->
+    <attr name="base_color" format="color"/>
+    <!--标题背景颜色-->
+    <attr name="title_background" format="reference|color"/>
+    <!--标题字体颜色-->
+    <attr name="title_text_color" format="color"/>
+    <!--主界面头部颜色-->
+    <attr name="main_title_background" format="reference|color"/>
+    <!--登录按钮-->
+    <attr name="login_button" format="reference"/>
+    <!--保存记录按钮-->
+    <attr name="add_bus_button" format="reference"/>
+    <!--猪只选择弹窗查询按钮-->
+    <attr name="dialog_seach_button" format="reference"/>
+    <!--猪只选择弹窗列标题背景-->
+    <attr name="dialog_title_bg" format="reference"/>
+    <!--档案类别选中按钮-->
+    <attr name="file_selected_button" format="reference"/>
+    <!--档案类别未选中按钮-->
+    <attr name="file_normal_button" format="reference"/>
+    <!--弹窗表头色-->
+    <attr name="dialog_base_color" format="color"/>
+
+    <declare-styleable name="Slider">
+        <!--菜单与屏幕右边的距离-->
+        <attr name="MenuRightMargin" format="dimension"/>
+        <!--菜单与屏幕左边的距离-->
+        <attr name="MenuLeftMargin" format="dimension" />
+    </declare-styleable>
+</resources>

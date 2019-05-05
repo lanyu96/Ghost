@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <LinearLayout
+        style="@style/detail_ll_row"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="单据编号"/>
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_number"
+            style="@style/detail_tv_value"
+            android:layout_weight="8"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/detail_ll_row">
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="单据状态"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_status"
+            style="@style/detail_tv_value"
+            />
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="业务日期"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_date"
+            style="@style/detail_tv_value"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/detail_ll_row">
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="母猪耳号"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_pig_num"
+            style="@style/detail_tv_value"
+            />
+
+        <TextView
+
+            style="@style/detail_tv_key"
+            android:text="存栏位置"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_location"
+            style="@style/detail_tv_value"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/detail_ll_row">
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="猪只状态"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_pig_state"
+            style="@style/detail_tv_value"
+            />
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="窝        重"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_weight"
+            style="@style/detail_tv_value"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/detail_ll_row">
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="均        重"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_ave_weight"
+            style="@style/detail_tv_value"
+            />
+
+        <TextView
+
+            style="@style/detail_tv_key"
+            android:text="产        程"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_hour"
+            style="@style/detail_tv_value"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/detail_ll_row">
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="仔猪转入批次"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_child_batch"
+            style="@style/detail_tv_value"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/detail_ll_row">
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="总  仔  数"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_all_count"
+            style="@style/detail_tv_value"
+            />
+
+        <TextView
+            style="@style/detail_tv_key"
+            android:text="活  仔  数"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_live_count"
+            style="@style/detail_tv_value"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/detail_ll_row">
+
+        <TextView
+
+            style="@style/detail_tv_key"
+            android:text="健  仔  数"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_strong_count"
+            style="@style/detail_tv_value"
+            />
+
+        <TextView
+
+            style="@style/detail_tv_key"
+            android:text="弱  仔  数"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_weak_count"
+            style="@style/detail_tv_value"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/detail_ll_row">
+
+        <TextView
+
+            style="@style/detail_tv_key"
+            android:text="黑死胎数"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_black_count"
+            style="@style/detail_tv_value"
+            />
+
+        <TextView
+
+            style="@style/detail_tv_key"
+            android:text="白死胎数"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_write_count"
+            style="@style/detail_tv_value"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/detail_ll_row">
+
+        <TextView
+
+            style="@style/detail_tv_key"
+            android:text="畸  形  数"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_malf_count"
+            style="@style/detail_tv_value"
+            />
+
+        <TextView
+
+            style="@style/detail_tv_key"
+            android:text="木乃伊数"
+            />
+
+        <TextView
+            android:id="@+id/tv_farrow_detail_mummy_count"
+            style="@style/detail_tv_value"
+            />
+
+    </LinearLayout>
+            <LinearLayout
+                style="@style/detail_ll_row">
+
+                <TextView
+                    style="@style/detail_tv_key"
+                    android:text="制  单  人"/>
+
+                <TextView
+                    android:id="@+id/tv_farrow_detail_creator"
+                    style="@style/detail_tv_value"
+                    android:layout_weight="8"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/detail_ll_row">
+
+                <TextView
+                    style="@style/detail_tv_key"
+                    android:text="制单时间"/>
+
+                <TextView
+                    android:id="@+id/tv_farrow_detail_createtime"
+                    style="@style/detail_tv_value"
+                    android:layout_weight="8"
+                    />
+            </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_out_detail_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
+
