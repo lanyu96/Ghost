@@ -1,30 +1,3 @@
 <resources>
-    <string name="app_name">猪事通</string>
-
-    <string name="loading">正在加载...</string>
-    <string name="try_again_quit">再按一次退出应用</string>
-
-    <string name="fail_login_check_link">登录失败请检查网络连接</string>
-    <string name="user_or_password_error">用户名或密码错误</string>
-    <string name="fail_request_data_null">请求失败返回数据为空</string>
-    <string name="fail_connect_try_again">连接失败请重新尝试</string>
-    <string name="user_name">用户名</string>
-    <string name="password">密码</string>
-    <string name="login_space">登&#160;&#160;录</string>
-    <string name="reset">重置</string>
-    <string name="save">保存</string>
-    <string name="updateContext">新版本更新的内容: 加入了部分功能,修复了一些Bug,优化了运行速度</string>
-    <string name="updateTitle">发现新版本</string>
-    <string name="updateDownloadUrl">http://test-1251233192.coscd.myqcloud.com/1_1.apk</string>
-    <string name="no_permission">你无此项权限</string>
-    <string name="ProductionReminder"><u>00</u></string>
-    <string name="AbnormalProduction"><u>00</u></string>
-    <string name="houBeiNumber"><u>000</u></string>
-    <string name="gongZhuNumber"><u>000</u></string>
-    <string name="muZhuNumber"><u>000</u></string>
-    <string name="rouZhuNumber"><u>000</u></string>
-    <string name="open">打开</string>
-    <string name="close">关闭</string>
-
-
+    <string name="app_name">Ghost</string>
 </resources>

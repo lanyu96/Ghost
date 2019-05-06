@@ -3,40 +3,4 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="pink">#FF4081</color>
-    <color name="white">#ffffff</color>
-
-    <color name="black">#000000</color>
-    <color name="black_tint">#666666</color>
-    <color name="main_background">#11000000</color>
-    <color name="devide">#33888888</color>
-
-    <color name="green">#2a9d38</color>
-    <color name="green_light">#6fda5e</color>
-
-    <color name="green_gray">#e7fae9</color>
-    <color name="gray_deep">#8a8a8a</color>
-    <color name="gray_light">#e1e1e1</color>
-    <color name="gray_deep_t">#778a8a8a</color>
-    <color name="gray">#88888899</color>
-    <color name="gray_easy">#88fbfbff</color>
-    <color name="red">#b20000</color>
-    <color name="red_gray">#ffeef4</color>
-    <color name="orange">#fe9c4c</color>
-    <color name="orange_gray">#fff8ee</color>
-    <color name="blue">#4b7afc</color>
-    <color name="blue_light">#5f9efc</color>
-    <color name="blue_deep">#2b579a</color>
-    <color name="blue_new">#4573bc</color>
-    <color name="blue_gray">#eef0ff</color>
-    <color name="table_title_background">#996fc0d3</color>
-    <color name="table_title_background2">#e3edf9</color>
-
-
-    <color name="color_f6">#f6f6f6</color>
-
-
-
-
-
 </resources>
