@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_light"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="75dp"-->
+        <!--android:background="@drawable/operate_title_bg"-->
+        <!--android:gravity="left"-->
+        <!--android:orientation="vertical"-->
+
+        <!--android:paddingTop="25dp">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/common_title"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginLeft="25dp"-->
+            <!--android:layout_marginRight="80dp"-->
+            <!--android:ellipsize="end"-->
+            <!--android:gravity="center"-->
+            <!--android:maxLines="1"-->
+            <!--android:text="个人信息"-->
+            <!--android:textColor="?attr/title_text_color"-->
+            <!--android:textSize="22sp" />-->
+    <!--</LinearLayout>-->
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="32dp"-->
+        <!--android:background="@drawable/operate_title_bg"-->
+        <!--/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/tv_field11"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="35dp"-->
+
+        <!--android:gravity="left"-->
+        <!--android:paddingLeft="20dp"-->
+        <!--android:background="@drawable/operate_title_bg"-->
+        <!--android:text="个人信息"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="22sp" />-->
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="7dp"-->
+        <!--android:background="@drawable/operate_title_bg"-->
+        <!--/>-->
+    <TextView
+        android:id="@+id/common_title"
+        android:layout_width="match_parent"
+        android:paddingTop="32dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:background="?attr/base_color"
+        android:gravity="left"
+        android:paddingLeft="20dp"
+        android:text="个人信息"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
+    <!--<View-->
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.5dp"-->
+        <!--android:background="#f888" />-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/my_ll_row">
+                    <TextView
+                        style="@style/my_tv_key"
+                        android:text="账        号" />
+                    <TextView
+                        android:id="@+id/tv_person_name"
+                        style="@style/my_tv_value" />
+
+                    <ImageView
+                        style="@style/my_iv_click"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <View style="@style/v_row_devide" />
+
+                <LinearLayout style="@style/my_ll_row">
+                    <TextView
+                        style="@style/my_tv_key"
+                        android:text="用户实名" />
+                    <TextView
+                        android:id="@+id/tv_person_real_name"
+                        style="@style/my_tv_value" />
+                    <ImageView
+                        style="@style/my_iv_click"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+
+
+                <View style="@style/v_row_devide" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_person_farm"
+                    style="@style/my_ll_row">
+
+                    <TextView
+                        style="@style/my_tv_key"
+
+                        android:text="猪        场" />
+
+                    <TextView
+                        android:id="@+id/tv_person_farm"
+                        style="@style/my_tv_value" />
+
+                    <ImageView style="@style/my_iv_click" />
+                </LinearLayout>
+
+                <View style="@style/v_row_devide" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_person_feild"
+                    style="@style/my_ll_row">
+
+                    <TextView
+                        style="@style/my_tv_key"
+
+                        android:text="分        场" />
+
+                    <TextView
+                        android:id="@+id/tv_person_feild"
+                        style="@style/my_tv_value" />
+
+                    <ImageView style="@style/my_iv_click" />
+                </LinearLayout>
+                <View style="@style/v_row_devide" />
+                <LinearLayout
+                    android:id="@+id/ll_person_select_style_ll"
+                    style="@style/my_ll_row">
+
+                    <TextView
+                        style="@style/my_tv_key"
+
+                        android:text="界面风格" />
+
+                    <TextView
+                        android:id="@+id/tv_person_select_style_tv"
+                        style="@style/my_tv_value" />
+
+                    <ImageView style="@style/my_iv_click" />
+                </LinearLayout>
+                <View style="@style/v_row_devide" />
+                <LinearLayout
+                    android:id="@+id/fragment_person_modify_password_ll"
+                    style="@style/my_ll_row">
+
+                    <TextView
+                        style="@style/my_tv_key"
+
+                        android:text="修改密码" />
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/tv_person_select_style_tv"-->
+                        <!--style="@style/my_tv_value" />-->
+
+                    <ImageView style="@style/my_iv_click" />
+                </LinearLayout>
+                <View style="@style/v_row_devide" />
+                <LinearLayout
+                    android:id="@+id/fragment_person_get_update_ll"
+                    style="@style/my_ll_row">
+
+                    <TextView
+                        style="@style/my_tv_key"
+
+                        android:text="版本更新" />
+
+                    <TextView
+                        android:id="@+id/fragment_person_get_update__tv"
+                        android:text="检查更新"
+                        style="@style/my_tv_value" />
+
+                    <ImageView style="@style/my_iv_click" />
+                </LinearLayout>
+
+                <View style="@style/v_row_devide" />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv_person_logout"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="25dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="退出登录"
+                android:textColor="@color/gray_deep"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

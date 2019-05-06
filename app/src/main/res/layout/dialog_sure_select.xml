@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_dialog_sure_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/dialog_base_color"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="标题"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/gray_deep"/>
+
+    <TextView
+        android:id="@+id/tv_dialog_sure_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="标题v标题标题标题标题标题标题标题标题标题标题标题标题标题标题"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/gray_deep"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tv_dialog_sure_no"
+            style="@style/dialog_tv_button"
+            android:text="否"
+            android:textColor="@color/black_tint"
+            />
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_deep"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_dialog_sure_center"
+            style="@style/dialog_tv_button"
+            android:text=""
+            />
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_deep"/>
+        <TextView
+            android:id="@+id/tv_dialog_sure_yes"
+            style="@style/dialog_tv_button"
+            android:text="是"
+            android:textColor="@color/red"
+            />
+    </LinearLayout>
+</LinearLayout>
