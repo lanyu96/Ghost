@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import mvp.com.zhou.mvp.R;
+import com.zhou.ghost.R;
 
 
 /**

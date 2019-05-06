@@ -3,8 +3,8 @@ package com.zhou.ghost.ui.view;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.ui.callback.CallBackPositionListener;
-import mvp.com.zhou.mvp.ui.view.base.BaseActivityView;
+import com.zhou.ghost.ui.callback.CallBackPositionListener;
+import com.zhou.ghost.ui.view.base.BaseActivityView;
 
 
 /**

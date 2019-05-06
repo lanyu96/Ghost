@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.bean.PenGroupInfo;
-import mvp.com.zhou.mvp.ui.callback.OnItemClickListener;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.bean.PenGroupInfo;
+import com.zhou.ghost.ui.callback.OnItemClickListener;
 
 
 /**

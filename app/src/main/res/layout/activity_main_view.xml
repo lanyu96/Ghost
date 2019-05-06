@@ -77,7 +77,7 @@
         <!--android:layout_height="match_parent"/>-->
 
     <!--可以自主选择是否可以滑动-->
-    <mvp.com.zhou.mvp.ui.anim.ViewPagerSlide
+    <com.zhou.ghost.ui.anim.ViewPagerSlide
         android:id="@+id/main_vp_content"
         android:background="@color/main_background"
         android:layout_below="@id/common_title_layout"

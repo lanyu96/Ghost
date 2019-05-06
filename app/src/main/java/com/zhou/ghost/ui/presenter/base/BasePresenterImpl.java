@@ -7,9 +7,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.lang.ref.WeakReference;
 
-import mvp.com.zhou.mvp.ui.model.base.BaseModel;
-import mvp.com.zhou.mvp.ui.view.base.BaseView;
-import mvp.com.zhou.mvp.utils.util.Logger;
+import com.zhou.ghost.ui.model.base.BaseModel;
+import com.zhou.ghost.ui.view.base.BaseView;
+import com.zhou.ghost.utils.util.Logger;
 
 
 /**

@@ -10,8 +10,8 @@ import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
 import com.yzq.zxinglibrary.common.Constant;
 
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.presenter.base.BasePresenterImpl;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.presenter.base.BasePresenterImpl;
 
 
 /**

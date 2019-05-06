@@ -17,9 +17,9 @@ import com.yzq.zxinglibrary.common.Constant;
 
 import org.greenrobot.eventbus.EventBus;
 
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.presenter.main.MainHomePresenterImpl;
-import mvp.com.zhou.mvp.ui.view.base.BaseFragment;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.presenter.main.MainHomePresenterImpl;
+import com.zhou.ghost.ui.view.base.BaseFragment;
 
 
 public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implements MainHomeView {

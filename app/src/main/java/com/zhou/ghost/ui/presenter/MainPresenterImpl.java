@@ -8,15 +8,15 @@ import android.support.v4.app.FragmentTransaction;
 import java.util.ArrayList;
 import java.util.List;
 
-import mvp.com.zhou.mvp.ui.adapter.base.FragmentAdapter;
-import mvp.com.zhou.mvp.ui.model.MainModel;
-import mvp.com.zhou.mvp.ui.model.MainModelImpl;
-import mvp.com.zhou.mvp.ui.presenter.base.BasePresenterImpl;
-import mvp.com.zhou.mvp.ui.view.MainView;
-import mvp.com.zhou.mvp.ui.view.main.MainHomeViewFrag;
-import mvp.com.zhou.mvp.ui.view.main.MainOperateViewFrag;
-import mvp.com.zhou.mvp.ui.view.main.MainPersonViewFrag;
-import mvp.com.zhou.mvp.ui.view.main.MainReportViewFrag;
+import com.zhou.ghost.ui.adapter.base.FragmentAdapter;
+import com.zhou.ghost.ui.model.MainModel;
+import com.zhou.ghost.ui.model.MainModelImpl;
+import com.zhou.ghost.ui.presenter.base.BasePresenterImpl;
+import com.zhou.ghost.ui.view.MainView;
+import com.zhou.ghost.ui.view.main.MainHomeViewFrag;
+import com.zhou.ghost.ui.view.main.MainOperateViewFrag;
+import com.zhou.ghost.ui.view.main.MainPersonViewFrag;
+import com.zhou.ghost.ui.view.main.MainReportViewFrag;
 
 
 /**

@@ -10,12 +10,12 @@ import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.constant.SPConstants;
-import mvp.com.zhou.mvp.ui.presenter.MainPresenterImpl;
-import mvp.com.zhou.mvp.ui.view.base.BaseActivity;
-import mvp.com.zhou.mvp.utils.util.PreferencesService;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.R;
+import com.zhou.ghost.constant.SPConstants;
+import com.zhou.ghost.ui.presenter.MainPresenterImpl;
+import com.zhou.ghost.ui.view.base.BaseActivity;
+import com.zhou.ghost.utils.util.PreferencesService;
 
 
 public class MainViewActivity extends BaseActivity<MainPresenterImpl> implements MainView {

@@ -13,17 +13,17 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.constant.SPConstants;
-import mvp.com.zhou.mvp.ui.bean.eventbus.StyleSelectMessage;
-import mvp.com.zhou.mvp.ui.callback.CallBackPositionListener;
-import mvp.com.zhou.mvp.ui.dialog.DialogUtils;
-import mvp.com.zhou.mvp.ui.presenter.main.MainPersonPresenterImpl;
-import mvp.com.zhou.mvp.ui.view.LoginViewActivity;
-import mvp.com.zhou.mvp.ui.view.SplashActivity;
-import mvp.com.zhou.mvp.ui.view.base.BaseFragment;
-import mvp.com.zhou.mvp.utils.util.PreferencesService;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.R;
+import com.zhou.ghost.constant.SPConstants;
+import com.zhou.ghost.ui.bean.eventbus.StyleSelectMessage;
+import com.zhou.ghost.ui.callback.CallBackPositionListener;
+import com.zhou.ghost.ui.dialog.DialogUtils;
+import com.zhou.ghost.ui.presenter.main.MainPersonPresenterImpl;
+import com.zhou.ghost.ui.view.LoginViewActivity;
+import com.zhou.ghost.ui.view.SplashActivity;
+import com.zhou.ghost.ui.view.base.BaseFragment;
+import com.zhou.ghost.utils.util.PreferencesService;
 
 
 public class MainPersonViewFrag extends BaseFragment<MainPersonPresenterImpl> implements MainPersonView {

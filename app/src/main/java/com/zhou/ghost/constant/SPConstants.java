@@ -1,8 +1,8 @@
 package com.zhou.ghost.constant;
 
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.utils.util.PreferencesService;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.utils.util.PreferencesService;
 
 /**
  * Created by Administrator on 2017/9/14.

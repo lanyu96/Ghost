@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.R;
+import com.zhou.ghost.R;
 
 
 /**

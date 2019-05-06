@@ -5,9 +5,9 @@ import com.google.gson.JsonObject;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.ui.bean.AppInfo;
-import mvp.com.zhou.mvp.ui.bean.Login;
-import mvp.com.zhou.mvp.ui.bean.base.BaseObjectBean;
+import com.zhou.ghost.ui.bean.AppInfo;
+import com.zhou.ghost.ui.bean.Login;
+import com.zhou.ghost.ui.bean.base.BaseObjectBean;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;

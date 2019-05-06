@@ -10,10 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.presenter.base.BasePresenterImpl;
-import mvp.com.zhou.mvp.utils.util.ToastUtils;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.presenter.base.BasePresenterImpl;
+import com.zhou.ghost.utils.util.ToastUtils;
 
 
 public abstract class BaseFragment<T extends BasePresenterImpl> extends Fragment implements View.OnClickListener, BaseFragmentView {

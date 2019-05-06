@@ -3,16 +3,16 @@ package com.zhou.ghost.ui.model.main;
 
 import org.greenrobot.eventbus.EventBus;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.constant.SPConstants;
-import mvp.com.zhou.mvp.httputil.NetUtil;
-import mvp.com.zhou.mvp.ui.bean.PigFarmInfo;
-import mvp.com.zhou.mvp.ui.bean.PigFieldInfo;
-import mvp.com.zhou.mvp.ui.bean.eventbus.PigFieldMessage;
-import mvp.com.zhou.mvp.ui.callback.CallBackListListener;
-import mvp.com.zhou.mvp.ui.model.base.BaseModelImpl;
-import mvp.com.zhou.mvp.ui.view.base.BaseView;
-import mvp.com.zhou.mvp.utils.util.PreferencesService;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.constant.SPConstants;
+import com.zhou.ghost.httputil.NetUtil;
+import com.zhou.ghost.ui.bean.PigFarmInfo;
+import com.zhou.ghost.ui.bean.PigFieldInfo;
+import com.zhou.ghost.ui.bean.eventbus.PigFieldMessage;
+import com.zhou.ghost.ui.callback.CallBackListListener;
+import com.zhou.ghost.ui.model.base.BaseModelImpl;
+import com.zhou.ghost.ui.view.base.BaseView;
+import com.zhou.ghost.utils.util.PreferencesService;
 
 /**
  * @Auther: LIUQNGFEI

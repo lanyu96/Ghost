@@ -11,16 +11,16 @@ import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import mvp.com.zhou.mvp.httputil.HttpRequest;
-import mvp.com.zhou.mvp.ui.bean.DailyReportData;
-import mvp.com.zhou.mvp.ui.bean.DailyReportData1;
-import mvp.com.zhou.mvp.ui.bean.DailyReportTable;
-import mvp.com.zhou.mvp.ui.bean.DailyReportTableInt;
-import mvp.com.zhou.mvp.ui.callback.CallBackListListener;
-import mvp.com.zhou.mvp.ui.callback.CallBackListener;
-import mvp.com.zhou.mvp.ui.model.base.BaseModelImpl;
-import mvp.com.zhou.mvp.ui.view.base.BaseView;
-import mvp.com.zhou.mvp.utils.DataUtils;
+import com.zhou.ghost.httputil.HttpRequest;
+import com.zhou.ghost.ui.bean.DailyReportData;
+import com.zhou.ghost.ui.bean.DailyReportData1;
+import com.zhou.ghost.ui.bean.DailyReportTable;
+import com.zhou.ghost.ui.bean.DailyReportTableInt;
+import com.zhou.ghost.ui.callback.CallBackListListener;
+import com.zhou.ghost.ui.callback.CallBackListener;
+import com.zhou.ghost.ui.model.base.BaseModelImpl;
+import com.zhou.ghost.ui.view.base.BaseView;
+import com.zhou.ghost.utils.DataUtils;
 
 
 /**

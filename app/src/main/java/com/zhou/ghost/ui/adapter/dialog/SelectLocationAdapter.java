@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.bean.PenInfo;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.bean.PenInfo;
 
 
 /**

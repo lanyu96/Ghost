@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.RelativeLayout;
 
-import mvp.com.zhou.mvp.R;
+import com.zhou.ghost.R;
 
 public class Slider extends HorizontalScrollView {
 

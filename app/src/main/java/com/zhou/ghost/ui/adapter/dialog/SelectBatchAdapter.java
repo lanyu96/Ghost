@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.bean.BatchFile;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.bean.BatchFile;
 
 /**
  * Created by fei on 2018/4/3.

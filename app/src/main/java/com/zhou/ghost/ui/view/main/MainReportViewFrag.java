@@ -5,9 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.presenter.main.MainReportPresenterImpl;
-import mvp.com.zhou.mvp.ui.view.base.BaseFragment;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.presenter.main.MainReportPresenterImpl;
+import com.zhou.ghost.ui.view.base.BaseFragment;
 
 
 public class MainReportViewFrag extends BaseFragment<MainReportPresenterImpl> implements MainReportView {

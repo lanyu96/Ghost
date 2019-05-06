@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mvp.com.zhou.mvp.ui.view.SplashActivity"
+    tools:context="com.zhou.ghost.ui.view.SplashActivity"
     android:background="@drawable/welcome_bg"
     >
 

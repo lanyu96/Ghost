@@ -3,7 +3,7 @@ package com.zhou.ghost.ui.view;
 
 import android.support.v4.app.FragmentManager;
 
-import mvp.com.zhou.mvp.ui.view.base.BaseActivityView;
+import com.zhou.ghost.ui.view.base.BaseActivityView;
 
 
 /**

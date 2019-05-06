@@ -4,8 +4,8 @@ import android.content.Context;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.ui.bean.MainFunction;
-import mvp.com.zhou.mvp.ui.model.base.BaseModelImpl;
+import com.zhou.ghost.ui.bean.MainFunction;
+import com.zhou.ghost.ui.model.base.BaseModelImpl;
 
 
 /**

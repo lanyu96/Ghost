@@ -24,7 +24,7 @@ import com.luck.picture.lib.tools.StringUtils;
 import java.io.File;
 import java.util.List;
 
-import mvp.com.zhou.mvp.R;
+import com.zhou.ghost.R;
 
 /**
  * author：luck

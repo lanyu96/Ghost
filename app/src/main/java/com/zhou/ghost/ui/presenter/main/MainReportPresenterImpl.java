@@ -1,10 +1,10 @@
 package com.zhou.ghost.ui.presenter.main;
 
 
-import mvp.com.zhou.mvp.ui.model.main.MainReportModel;
-import mvp.com.zhou.mvp.ui.model.main.MainReportModelImpl;
-import mvp.com.zhou.mvp.ui.presenter.base.BasePresenterImpl;
-import mvp.com.zhou.mvp.ui.view.main.MainReportView;
+import com.zhou.ghost.ui.model.main.MainReportModel;
+import com.zhou.ghost.ui.model.main.MainReportModelImpl;
+import com.zhou.ghost.ui.presenter.base.BasePresenterImpl;
+import com.zhou.ghost.ui.view.main.MainReportView;
 
 /**
  * @Auther: LIUQNGFEI

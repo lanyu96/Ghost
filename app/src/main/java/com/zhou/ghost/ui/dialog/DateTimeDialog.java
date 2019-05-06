@@ -10,7 +10,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import mvp.com.zhou.mvp.R;
+import com.zhou.ghost.R;
 
 
 /**

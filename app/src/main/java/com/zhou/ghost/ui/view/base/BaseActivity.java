@@ -21,11 +21,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.presenter.base.BasePresenterImpl;
-import mvp.com.zhou.mvp.utils.util.AndroidBug5497Workaround;
-import mvp.com.zhou.mvp.utils.util.ToastUtils;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.presenter.base.BasePresenterImpl;
+import com.zhou.ghost.utils.util.AndroidBug5497Workaround;
+import com.zhou.ghost.utils.util.ToastUtils;
 
 
 public abstract class BaseActivity<T extends BasePresenterImpl> extends FragmentActivity implements View.OnClickListener, BaseActivityView {

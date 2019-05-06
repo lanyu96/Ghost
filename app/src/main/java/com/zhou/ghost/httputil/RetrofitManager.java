@@ -10,9 +10,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import mvp.com.zhou.mvp.BuildConfig;
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.utils.NetworkUtils;
+import com.zhou.ghost.BuildConfig;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.utils.NetworkUtils;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;

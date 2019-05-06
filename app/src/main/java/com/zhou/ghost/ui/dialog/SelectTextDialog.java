@@ -10,8 +10,8 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.adapter.dialog.MyTextAdapter;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.adapter.dialog.MyTextAdapter;
 
 
 /**

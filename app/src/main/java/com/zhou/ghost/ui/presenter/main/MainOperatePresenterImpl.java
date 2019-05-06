@@ -4,11 +4,11 @@ package com.zhou.ghost.ui.presenter.main;
 import java.util.ArrayList;
 import java.util.List;
 
-import mvp.com.zhou.mvp.ui.bean.MainFunction;
-import mvp.com.zhou.mvp.ui.model.main.MainOperateModel;
-import mvp.com.zhou.mvp.ui.model.main.MainOperateModelImpl;
-import mvp.com.zhou.mvp.ui.presenter.base.BasePresenterImpl;
-import mvp.com.zhou.mvp.ui.view.main.MainOperateView;
+import com.zhou.ghost.ui.bean.MainFunction;
+import com.zhou.ghost.ui.model.main.MainOperateModel;
+import com.zhou.ghost.ui.model.main.MainOperateModelImpl;
+import com.zhou.ghost.ui.presenter.base.BasePresenterImpl;
+import com.zhou.ghost.ui.view.main.MainOperateView;
 
 /**
  * @Auther: LIUQNGFEI

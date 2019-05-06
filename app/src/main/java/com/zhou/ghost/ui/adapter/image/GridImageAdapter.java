@@ -25,7 +25,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import mvp.com.zhou.mvp.R;
+import com.zhou.ghost.R;
 
 
 /**

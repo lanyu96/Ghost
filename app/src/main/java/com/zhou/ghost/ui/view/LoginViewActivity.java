@@ -9,13 +9,13 @@ import com.allenliu.versionchecklib.v2.AllenVersionChecker;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.ui.callback.CallBackPositionListener;
-import mvp.com.zhou.mvp.ui.dialog.DialogUtils;
-import mvp.com.zhou.mvp.ui.presenter.LoginPresenterImpl;
-import mvp.com.zhou.mvp.ui.view.base.BaseActivity;
+import com.zhou.ghost.R;
+import com.zhou.ghost.ui.callback.CallBackPositionListener;
+import com.zhou.ghost.ui.dialog.DialogUtils;
+import com.zhou.ghost.ui.presenter.LoginPresenterImpl;
+import com.zhou.ghost.ui.view.base.BaseActivity;
 
-import static mvp.com.zhou.mvp.httputil.HttpContants.JUMPLOGIN;
+import static com.zhou.ghost.httputil.HttpContants.JUMPLOGIN;
 
 
 public class LoginViewActivity extends BaseActivity<LoginPresenterImpl> implements LoginView {

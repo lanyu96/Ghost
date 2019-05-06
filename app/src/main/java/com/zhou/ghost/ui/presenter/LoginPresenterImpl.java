@@ -7,19 +7,19 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.constant.SPConstants;
-import mvp.com.zhou.mvp.httputil.RetrofitManager;
-import mvp.com.zhou.mvp.ui.bean.PigFarmInfo;
-import mvp.com.zhou.mvp.ui.bean.PigFieldInfo;
-import mvp.com.zhou.mvp.ui.callback.CallBackListListener;
-import mvp.com.zhou.mvp.ui.callback.CallBackPositionListener;
-import mvp.com.zhou.mvp.ui.dialog.DialogUtils;
-import mvp.com.zhou.mvp.ui.model.LoginModel;
-import mvp.com.zhou.mvp.ui.model.LoginModelImpl;
-import mvp.com.zhou.mvp.ui.presenter.base.BasePresenterImpl;
-import mvp.com.zhou.mvp.ui.view.LoginView;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.R;
+import com.zhou.ghost.constant.SPConstants;
+import com.zhou.ghost.httputil.RetrofitManager;
+import com.zhou.ghost.ui.bean.PigFarmInfo;
+import com.zhou.ghost.ui.bean.PigFieldInfo;
+import com.zhou.ghost.ui.callback.CallBackListListener;
+import com.zhou.ghost.ui.callback.CallBackPositionListener;
+import com.zhou.ghost.ui.dialog.DialogUtils;
+import com.zhou.ghost.ui.model.LoginModel;
+import com.zhou.ghost.ui.model.LoginModelImpl;
+import com.zhou.ghost.ui.presenter.base.BasePresenterImpl;
+import com.zhou.ghost.ui.view.LoginView;
 
 
 /**

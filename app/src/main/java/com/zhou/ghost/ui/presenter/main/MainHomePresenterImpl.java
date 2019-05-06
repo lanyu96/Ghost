@@ -4,10 +4,10 @@ package com.zhou.ghost.ui.presenter.main;
 import java.util.ArrayList;
 import java.util.List;
 
-import mvp.com.zhou.mvp.ui.model.main.MainHomeModel;
-import mvp.com.zhou.mvp.ui.model.main.MainHomeModelImpl;
-import mvp.com.zhou.mvp.ui.presenter.base.BasePresenterImpl;
-import mvp.com.zhou.mvp.ui.view.main.MainHomeView;
+import com.zhou.ghost.ui.model.main.MainHomeModel;
+import com.zhou.ghost.ui.model.main.MainHomeModelImpl;
+import com.zhou.ghost.ui.presenter.base.BasePresenterImpl;
+import com.zhou.ghost.ui.view.main.MainHomeView;
 
 /**
  * @Auther: LIUQNGFEI

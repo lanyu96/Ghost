@@ -17,12 +17,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.constant.SPConstants;
-import mvp.com.zhou.mvp.ui.bean.AppInfo;
-import mvp.com.zhou.mvp.ui.callback.CallBackListener;
-import mvp.com.zhou.mvp.ui.view.base.BaseView;
-import mvp.com.zhou.mvp.utils.DataUtils;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.constant.SPConstants;
+import com.zhou.ghost.ui.bean.AppInfo;
+import com.zhou.ghost.ui.callback.CallBackListener;
+import com.zhou.ghost.ui.view.base.BaseView;
+import com.zhou.ghost.utils.DataUtils;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;

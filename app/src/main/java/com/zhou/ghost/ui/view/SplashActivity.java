@@ -17,12 +17,12 @@ import android.widget.Toast;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.R;
-import mvp.com.zhou.mvp.httputil.HttpRequest;
-import mvp.com.zhou.mvp.ui.bean.AppInfo;
-import mvp.com.zhou.mvp.ui.callback.CallBackListener;
-import mvp.com.zhou.mvp.utils.AppUpdate;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.R;
+import com.zhou.ghost.httputil.HttpRequest;
+import com.zhou.ghost.ui.bean.AppInfo;
+import com.zhou.ghost.ui.callback.CallBackListener;
+import com.zhou.ghost.utils.AppUpdate;
 
 public class SplashActivity extends AppCompatActivity {
 

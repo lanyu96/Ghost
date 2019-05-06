@@ -1,11 +1,11 @@
 package com.zhou.ghost.ui.model.main;
 
 
-import mvp.com.zhou.mvp.ui.bean.PigFarmInfo;
-import mvp.com.zhou.mvp.ui.bean.PigFieldInfo;
-import mvp.com.zhou.mvp.ui.callback.CallBackListListener;
-import mvp.com.zhou.mvp.ui.model.base.BaseModel;
-import mvp.com.zhou.mvp.ui.view.base.BaseView;
+import com.zhou.ghost.ui.bean.PigFarmInfo;
+import com.zhou.ghost.ui.bean.PigFieldInfo;
+import com.zhou.ghost.ui.callback.CallBackListListener;
+import com.zhou.ghost.ui.model.base.BaseModel;
+import com.zhou.ghost.ui.view.base.BaseView;
 
 /**
  * @Auther: LIUQNGFEI

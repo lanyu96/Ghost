@@ -9,8 +9,8 @@ import com.luck.picture.lib.entity.LocalMedia;
 
 import java.util.List;
 
-import mvp.com.zhou.mvp.MyApp;
-import mvp.com.zhou.mvp.R;
+import com.zhou.ghost.MyApp;
+import com.zhou.ghost.R;
 
 
 /**

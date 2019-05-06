@@ -1,6 +1,6 @@
 package com.zhou.ghost.ui.model;
 
-import mvp.com.zhou.mvp.ui.model.base.BaseModelImpl;
+import com.zhou.ghost.ui.model.base.BaseModelImpl;
 
 /**
  * @Auther: LIUQNGFEI
