@@ -93,66 +93,8 @@ public class HttpRequest {
         }));
     }
 
-    public static void getRptData(final BaseView context, final boolean tryAgain, final String rptName, final String type, final int day, final String build, final String date, final CallBackListener<JsonObject> listener) {
-
-        JsonObject jsonObject = new JsonObject();
-        JsonObject object = new JsonObject();
-        object.addProperty("pigFarm", MyApp.getPreferencesService().getValue(SPConstants.FARM_ID, ""));
-        object.addProperty("field", MyApp.getPreferencesService().getValue(SPConstants.FIELD_ID, ""));
-
-        switch (type) {
-            case "SCQK":
-                object.addProperty("date", date);
-                break;
-            case "SCTX":
-                object.addProperty("date", date);
-                object.addProperty("day", day);
-                break;
-            case "report":
-                object.addProperty("date", date);
-                object.addProperty("build",build);
-                break;
-            default:
-                object.addProperty("date", date);
-                break;
-        }
-        jsonObject.add("rptParam", object);
-        jsonObject.addProperty("rptName", rptName);
-
-//        checkParams(jsonObject);
-
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), DataUtils.getJsonString(jsonObject));
-        Log.i("ZHOUT", DataUtils.getJsonString(jsonObject));
-        RetrofitManager.getService().getRptData(requestBody).enqueue(new HttpCallBack(context, tryAgain, listener, new HttpCallBack.TryAgainListener() {
-            @Override
-            public void onTryAgainListener() {
-                getRptData(context, false, rptName, type, day, date,build, listener);
-            }
-        }));
-    }
-
-    public static void changePassword(final BaseView context, boolean tryAgain, final HashMap<String, String> jsonParams, final CallBackListener<JsonObject> listener) {
-        checkParams(jsonParams);
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), DataUtils.getJsonString(jsonParams));
-        RetrofitManager.getService().changePassword(requestBody).enqueue(new HttpCallBack(context, tryAgain, listener, new HttpCallBack.TryAgainListener() {
-            @Override
-            public void onTryAgainListener() {
-                changePassword(context, false, jsonParams, listener);
-            }
-        }));
-    }
 
 
-    public static void getEnumInfo(final BaseView context, final boolean tryAgain, final HashMap<String, String> jsonParams, final CallBackListener<JsonObject> listener) {
-        checkParams(jsonParams);
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), DataUtils.getJsonString(jsonParams));
-        RetrofitManager.getService().getEumInfo(requestBody).enqueue(new HttpCallBack(context, tryAgain, listener, new HttpCallBack.TryAgainListener() {
-            @Override
-            public void onTryAgainListener() {
-                getEnumInfo(context, false, jsonParams, listener);
-            }
-        }));
-    }
 
     public static void uploadData(final BaseView context, final boolean tryAgain, final JsonObject object, final String bosType, final CallBackListener<JsonObject> listener) {
         object.addProperty("APP_BIZTYPE_CONSTANT", "PigFarmAll");
@@ -436,28 +378,5 @@ public class HttpRequest {
         }
     }
 
-    /**
-     * 获取栋舍存栏
-     *
-     * @param context
-     * @param tryAgain
-     * @param ids
-     * @param listener
-     */
-    public static void getNumByBuilding(final BaseView context, final boolean tryAgain, final List<String> ids, final CallBackListener<JsonObject> listener) {
-        JsonObject jsonObject = new JsonObject();
-        JsonArray array = new JsonArray();
-        for (int i = 0; i < ids.size(); i++) {
-            array.add(ids.get(i));
-        }
-        jsonObject.add("buildList", array);
 
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), DataUtils.getJsonString(jsonObject));
-        RetrofitManager.getService().getNumByBuilding(requestBody).enqueue(new HttpCallBack(context, tryAgain, listener, new HttpCallBack.TryAgainListener() {
-            @Override
-            public void onTryAgainListener() {
-                getNumByBuilding(context, false, ids, listener);
-            }
-        }));
-    }
 }

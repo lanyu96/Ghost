@@ -1,11 +1,6 @@
 package com.zhou.ghost.ui.model.main;
 
 
-import android.content.Context;
-
-import java.util.List;
-
-import com.zhou.ghost.ui.callback.CallBackListListener;
 import com.zhou.ghost.ui.model.base.BaseModel;
 
 
@@ -16,5 +11,4 @@ import com.zhou.ghost.ui.model.base.BaseModel;
  */
 public interface MainHomeModel extends BaseModel {
 
-    void addProductTableData(Context context, CallBackListListener<List> listener);
 }

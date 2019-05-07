@@ -163,9 +163,7 @@ public class MainViewActivity extends BaseActivity<MainPresenterImpl> implements
     @Override
     public void selectTab(int position) {
         initTab();
-        if("".equals(MyApp.getPreferencesService().getValue(SPConstants.FIELD_ID,""))){
-            showToast("请先选择分场");
-        }
+
         switch (position) {
             case 0://主页
                 vpContent.setCurrentItem(0, false);

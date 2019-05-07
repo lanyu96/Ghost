@@ -2,26 +2,10 @@ package com.zhou.ghost.httputil;
 
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import com.zhou.ghost.MyApp;
-import com.zhou.ghost.constant.SPConstants;
-import com.zhou.ghost.ui.bean.BreedPerson;
 import com.zhou.ghost.ui.bean.FileInfo;
-import com.zhou.ghost.ui.bean.LocationNum;
-import com.zhou.ghost.ui.bean.Materiel;
-import com.zhou.ghost.ui.bean.MaterielByHouse;
-import com.zhou.ghost.ui.bean.PenInfo;
 import com.zhou.ghost.ui.bean.PigCount;
-import com.zhou.ghost.ui.bean.PigFarmInfo;
-import com.zhou.ghost.ui.bean.PigFieldInfo;
 import com.zhou.ghost.ui.bean.PigFile;
 import com.zhou.ghost.ui.bean.base.BaseBean;
 import com.zhou.ghost.ui.bean.base.BaseListBean;
@@ -29,6 +13,10 @@ import com.zhou.ghost.ui.callback.CallBackListListener;
 import com.zhou.ghost.ui.callback.CallBackListener;
 import com.zhou.ghost.ui.view.base.BaseView;
 import com.zhou.ghost.wsutil.WSContants;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -131,74 +119,6 @@ public class NetUtil {
 
     }
 
-    /**
-     * 获取种猪数据
-     */
-    public static void getPigDataFromNet(BaseView context, String queryStr, CallBackListListener<PigFile> listListener) {
-
-        getPigDataFromNet(context, -1, -1, queryStr, listListener);
-    }
-
-    /**
-     * 获取栋舍信息
-     *
-     * @param listListener
-     */
-    public static void getPenDataFromNet(BaseView context, final String queryStr, final CallBackListListener<PenInfo> listListener) {
-        HashMap<String, String> jsonParams = new HashMap<String, String>();
-        jsonParams.put("bosType", WSContants.PEN_BOSTYPE);
-        jsonParams.put("isReplaceSplit", "true");
-        if (queryStr != null && !"".equals(queryStr)) {
-            jsonParams.put("queryStr", queryStr+" order by name asc");
-        }
-        if (HttpContants.USE_HTTP) {
-            HttpRequest.getList(context, true, jsonParams, new CallBackListener<JsonObject>() {
-                @Override
-                public void onSuccess(JsonObject jsonObject) {
-                    Gson gson = new Gson();
-                    BaseListBean<PenInfo> bean = gson.fromJson(jsonObject, new TypeToken<BaseListBean<PenInfo>>() {
-                    }.getType());
-                    if (bean.isSuccess()) {
-                        listListener.onSuccess(bean.getData());
-                    } else {
-                        listListener.onError(bean.getMessage());
-                    }
-                }
-
-                @Override
-                public void onError(String error) {
-                    listListener.onError(error);
-                }
-            });
-        } else {
-
-//            HashMap<String, String> params = new HashMap<>();
-//            params.put("jsonStr", DataUtils.getJsonString(jsonParams));
-//            WSBaseUtil.webServiceStart(WSContants.getFacade(), WSContants.getBillList, params, new WSBaseUtil.WsListener() {
-//                @Override
-//                public void onSuccess(String result) {
-//                    Gson gson = new Gson();
-//                    BaseListBean<PenInfo> bean = gson.fromJson(result, new TypeToken<BaseListBean<PenInfo>>() {
-//                    }.getType());
-//                    if (bean.isSuccess()) {
-//                        listListener.onSuccess(bean.getData());
-//                    } else {
-//                        listListener.onError(bean.getMessage());
-//                    }
-//                }
-//
-//                @Override
-//                public void onError(String error) {
-//                    listListener.onError(error);
-//                }
-//            });
-        }
-    }
-
-
-
-
-
 
 
 
@@ -251,189 +171,12 @@ public class NetUtil {
         });
     }
 
-    /**
-     * 获取分场
-     */
-    public static void getFarmInfoFromNet(BaseView context, final CallBackListListener<PigFarmInfo> listener) {
-        final HashMap<String, String> jsonParams = new HashMap<>();
-        jsonParams.put("userNum", MyApp.getPreferencesService().getValue(SPConstants.LOGIN_USER, ""));
-        jsonParams.put("APP_BIZTYPE_CONSTANT", "GetPersonInfo");
-        HttpRequest.getData(context, false, jsonParams, new CallBackListener<JsonObject>()
-
-        {
-            @Override
-            public void onSuccess(JsonObject jsonObject) {
-                Gson gson = new Gson();
-                BaseListBean<PigFarmInfo> bean = gson.fromJson(jsonObject, new TypeToken<BaseListBean<PigFarmInfo>>() {
-                }.getType());
-                if (bean.isSuccess()) {
-                    listener.onSuccess(bean.getPigFarms());
-                } else {
-                    listener.onError(bean.getMessage());
-                }
-            }
-
-            @Override
-            public void onError(String error) {
-                listener.onError(error);
-            }
-        });
-    }
-
-    /**
-     * 获取分场
-     */
-    public static void getFieldInfoFromNet(BaseView context, String queryStr, final CallBackListListener<PigFieldInfo> listener) {
-
-        HashMap<String, String> jsonParams = new HashMap<String, String>();
-        jsonParams.put("bosType", WSContants.FIELD_BOSTYPE);
-        jsonParams.put("isReplaceSplit", "true");
-        jsonParams.put("queryStr", queryStr);
-        if (HttpContants.USE_HTTP) {
-            HttpRequest.getList(context, true, jsonParams, new CallBackListener<JsonObject>() {
-                @Override
-                public void onSuccess(JsonObject jsonObject) {
-                    Gson gson = new Gson();
-                    BaseListBean<PigFieldInfo> bean = gson.fromJson(jsonObject, new TypeToken<BaseListBean<PigFieldInfo>>() {
-                    }.getType());
-                    if (bean.isSuccess()) {
-                        listener.onSuccess(bean.getData());
-                    } else {
-                        listener.onError(bean.getMessage());
-                    }
-                }
-
-                @Override
-                public void onError(String error) {
-                    listener.onError(error);
-                }
-            });
-        } else {
-
-
-        }
-    }
-
-    /**
-     * 获取配种员
-     */
-    public static void getBreedPersonFromNet(BaseView context, String name, final CallBackListListener<BreedPerson> listener) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put("bosType", WSContants.BREED_PERSON_BOSTYPE);
-        params.put("isReplaceSplit", "true");
-        StringBuffer str = new StringBuffer();
-        str.append("Belongzc.id='" + MyApp.getPreferencesService().getValue(SPConstants.FARM_ID, "") + "'");
-        if (name != null && !"".equals(name)) {
-            str.append(" and Employee.id in (\n" +
-                    "select fpersonid from t_pm_user where fnumber='" + name + "'\n" +
-                    ")");
-        }
-        params.put("queryStr", str.toString());
-        HttpRequest.getList(context, true, params, new CallBackListener<JsonObject>() {
-            @Override
-            public void onSuccess(JsonObject jsonObject) {
-                Gson gson = new Gson();
-                BaseListBean<BreedPerson> bean = gson.fromJson(jsonObject, new TypeToken<BaseListBean<BreedPerson>>() {
-                }.getType());
-                if (bean.isSuccess()) {
-                    listener.onSuccess(bean.getData());
-                } else {
-                    listener.onError(bean.getMessage());
-                }
-            }
-
-            @Override
-            public void onError(String error) {
-                listener.onError(error);
-            }
-        });
-    }
 
 
 
-    /**
-     * 获取单据详情
-     */
-    public static void getEtcInfoById(BaseView context, String id, String slor, final CallBackListener<JsonObject> listener) {
-        JsonObject object = new JsonObject();
-        object.addProperty("id", id);
-        if (slor != null) {
-            String[] s = slor.split(",");
-            JsonArray ja = new JsonArray();
-            for (int i = 0; i < s.length; i++) {
-                ja.add(s[i]);
-            }
-            object.add("slor", ja);
-        }
-        HttpRequest.getData(context, true, object, listener);
-    }
 
-    /**
-     * 根据仓库获取饲料
-     *
-     * @param context
-     * @param houseId
-     * @param listListener
-     */
-    public static void getMaterielByHouse(BaseView context, String houseId, final CallBackListListener<MaterielByHouse> listListener) {
-        HashMap<String, String> jsonParams = new HashMap<>();
-        jsonParams.put("queryInfo", "com.kingdee.eas.custom.pig.InitInventoryQuery");
-        jsonParams.put("queryStr", "warehouse.id ='" + houseId + "'");
-        jsonParams.put("isReplaceSplit", "true");
-        HttpRequest.getList(context, true, jsonParams, new CallBackListener<JsonObject>() {
-            @Override
-            public void onSuccess(JsonObject jsonObject) {
-                Gson gson = new Gson();
-                BaseListBean<MaterielByHouse> bean = gson.fromJson(jsonObject, new TypeToken<BaseListBean<MaterielByHouse>>() {
-                }.getType());
-                if (bean.isSuccess()) {
-                    listListener.onSuccess(bean.getData());
-                } else {
-                    listListener.onError(bean.getMessage());
-                }
-            }
 
-            @Override
-            public void onError(String error) {
-                listListener.onError(error);
-            }
-        });
 
-    }
-
-    /**
-     * 获取饲料
-     *
-     * @param context
-     * @param listListener
-     */
-    public static void getMaterielfromNet(BaseView context, final CallBackListListener<Materiel> listListener) {
-        HashMap<String, String> jsonParams = new HashMap<String, String>();
-        jsonParams.put("bosType", WSContants.FEED_FOOD_BOSTYPE);
-        jsonParams.put("queryInfo", "com.kingdee.eas.basedata.master.material.app.MaterialQuery");
-        jsonParams.put("queryStr", "id in (select FMaterialID from T_BD_MaterialCompanyInfo mc inner join CT_BAS_FieldFile ff on ff.CFCompanyID=mc.FCompanyID where ff.fid='" +
-                MyApp.getPreferencesService().getValue(SPConstants.FIELD_ID, "") + "')");
-        jsonParams.put("isReplaceSplit", "true");
-
-        HttpRequest.getList(context, true, jsonParams, new CallBackListener<JsonObject>() {
-            @Override
-            public void onSuccess(JsonObject jsonObject) {
-                Gson gson = new Gson();
-                BaseListBean<Materiel> bean = gson.fromJson(jsonObject, new TypeToken<BaseListBean<Materiel>>() {
-                }.getType());
-                if (bean.isSuccess()) {
-                    listListener.onSuccess(bean.getData());
-                } else {
-                    listListener.onError(bean.getMessage());
-                }
-            }
-
-            @Override
-            public void onError(String error) {
-                listListener.onError(error);
-            }
-        });
-    }
 
     /**
      * 审核
@@ -579,28 +322,5 @@ public class NetUtil {
         HttpRequest.getFile(context, id, listener);
     }
 
-    public static void getLocationNum(BaseView view, List<PenInfo> penInfos, final CallBackListListener<LocationNum> listener ){
-        List<String> ids = new ArrayList<>();
-        for(int i=0;i<penInfos.size();i++){
-            ids.add(penInfos.get(i).getId());
-        }
-        HttpRequest.getNumByBuilding(view, true, ids, new CallBackListener<JsonObject>() {
-            @Override
-            public void onSuccess(JsonObject jsonObject) {
-                Gson gson = new Gson();
-                BaseListBean<LocationNum> bean = gson.fromJson(jsonObject, new TypeToken<BaseListBean<LocationNum>>() {
-                }.getType());
-                if (bean.isSuccess()) {
-                    listener.onSuccess(bean.getData());
-                } else {
-                    listener.onError(bean.getMessage());
-                }
-            }
 
-            @Override
-            public void onError(String error) {
-                listener.onError(error);
-            }
-        });
-    }
 }

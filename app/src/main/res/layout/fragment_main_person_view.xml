@@ -8,50 +8,6 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical">
 
-    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="75dp"-->
-        <!--android:background="@drawable/operate_title_bg"-->
-        <!--android:gravity="left"-->
-        <!--android:orientation="vertical"-->
-
-        <!--android:paddingTop="25dp">-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/common_title"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="25dp"-->
-            <!--android:layout_marginRight="80dp"-->
-            <!--android:ellipsize="end"-->
-            <!--android:gravity="center"-->
-            <!--android:maxLines="1"-->
-            <!--android:text="个人信息"-->
-            <!--android:textColor="?attr/title_text_color"-->
-            <!--android:textSize="22sp" />-->
-    <!--</LinearLayout>-->
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="32dp"-->
-        <!--android:background="@drawable/operate_title_bg"-->
-        <!--/>-->
-    <!--<TextView-->
-        <!--android:id="@+id/tv_field11"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="35dp"-->
-
-        <!--android:gravity="left"-->
-        <!--android:paddingLeft="20dp"-->
-        <!--android:background="@drawable/operate_title_bg"-->
-        <!--android:text="个人信息"-->
-        <!--android:textColor="@color/white"-->
-        <!--android:textSize="22sp" />-->
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="7dp"-->
-        <!--android:background="@drawable/operate_title_bg"-->
-        <!--/>-->
     <TextView
         android:id="@+id/common_title"
         android:layout_width="match_parent"
@@ -118,41 +74,7 @@
                 <View style="@style/v_row_devide" />
 
 
-                <LinearLayout
-                    android:id="@+id/ll_person_farm"
-                    style="@style/my_ll_row">
 
-                    <TextView
-                        style="@style/my_tv_key"
-
-                        android:text="猪        场" />
-
-                    <TextView
-                        android:id="@+id/tv_person_farm"
-                        style="@style/my_tv_value" />
-
-                    <ImageView style="@style/my_iv_click" />
-                </LinearLayout>
-
-                <View style="@style/v_row_devide" />
-
-
-                <LinearLayout
-                    android:id="@+id/ll_person_feild"
-                    style="@style/my_ll_row">
-
-                    <TextView
-                        style="@style/my_tv_key"
-
-                        android:text="分        场" />
-
-                    <TextView
-                        android:id="@+id/tv_person_feild"
-                        style="@style/my_tv_value" />
-
-                    <ImageView style="@style/my_iv_click" />
-                </LinearLayout>
-                <View style="@style/v_row_devide" />
                 <LinearLayout
                     android:id="@+id/ll_person_select_style_ll"
                     style="@style/my_ll_row">

@@ -84,13 +84,13 @@ public abstract class BaseActivity<T extends BasePresenterImpl> extends Fragment
     //=====================================================新增重新加载界面
     public LinearLayout common_refresh;
     private TextView tv_refresh;
-    public  void initRefresh(){
-        common_refresh = (LinearLayout) findViewById(R.id.ll_common_refresh);
-        if(common_refresh !=null){
-            tv_refresh = findViewById(R.id.tv_common_refresh);
-            common_refresh.setVisibility(View.GONE);
-        }
-    };
+//    public  void initRefresh(){
+//        common_refresh = (LinearLayout) findViewById(R.id.ll_common_refresh);
+//        if(common_refresh !=null){
+//            tv_refresh = findViewById(R.id.tv_common_refresh);
+//            common_refresh.setVisibility(View.GONE);
+//        }
+//    };
     public void setRefreshClick(View.OnClickListener listener){
         if(common_refresh !=null) {
             tv_refresh.setOnClickListener(listener);
