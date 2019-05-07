@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/11/7 9:27
  * @Description:
  */

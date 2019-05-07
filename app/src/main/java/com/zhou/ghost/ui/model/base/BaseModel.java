@@ -1,7 +1,7 @@
 package com.zhou.ghost.ui.model.base;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/7/29 13:49
  * @Description:
  */

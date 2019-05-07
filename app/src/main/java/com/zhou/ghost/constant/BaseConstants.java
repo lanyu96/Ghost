@@ -1,7 +1,7 @@
 package com.zhou.ghost.constant;
 
 /**
- * Created by fei on 2018/4/23.
+ * Created by zhou on 2018/4/23.
  */
 public class BaseConstants {
     /**

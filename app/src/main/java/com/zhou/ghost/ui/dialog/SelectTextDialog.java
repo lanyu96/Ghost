@@ -15,7 +15,7 @@ import com.zhou.ghost.ui.adapter.dialog.MyTextAdapter;
 
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/8/2 11:07
  * @Description:
  */

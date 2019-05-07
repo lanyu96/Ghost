@@ -12,7 +12,7 @@ import com.zhou.ghost.R;
 
 
 /**
- * Created by fei on 2018/3/2.
+ * Created by zhou on 2018/3/2.
  */
 public class MyTextAdapter extends BaseAdapter {
     private Context mContext;

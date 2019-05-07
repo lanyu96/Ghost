@@ -3,7 +3,7 @@ package com.zhou.ghost.ui.bean;
 import android.content.Intent;
 
 /**
- * Created by fei on 2017/12/21.
+ * Created by zhou on 2017/12/21.
  */
 public class BottomBt {
     private String name;

@@ -13,7 +13,7 @@ import com.zhou.ghost.ui.bean.BreedBatch;
 
 
 /**
- * Created by fei on 2018/4/3.
+ * Created by zhou on 2018/4/3.
  */
 public class SelectBreedBatchAdapter extends BaseAdapter {
     private Context mContext;

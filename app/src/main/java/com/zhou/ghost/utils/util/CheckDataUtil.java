@@ -3,7 +3,7 @@ package com.zhou.ghost.utils.util;
 import java.math.BigDecimal;
 
 /**
- * Created by fei on 2018/3/21.
+ * Created by zhou on 2018/3/21.
  */
 public class CheckDataUtil {
     /**

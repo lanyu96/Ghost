@@ -3,7 +3,7 @@ package com.zhou.ghost.ui.bean;
 import java.io.Serializable;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/11/16 10:07
  * @Description:
  */

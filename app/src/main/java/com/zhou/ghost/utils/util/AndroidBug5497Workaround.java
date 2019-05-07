@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 
 /**
  * 解决软键盘挡住输入框----ADJUST_RESIZE属性在全屏时不管用的bug
- * Created by fei on 2018/5/7.
+ * Created by zhou on 2018/5/7.
  */
 public class AndroidBug5497Workaround {
     // For more information, see https://code.google.com/p/android/issues/detail?id=5497

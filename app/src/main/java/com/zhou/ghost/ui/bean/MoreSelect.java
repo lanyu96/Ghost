@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by fei on 2018/3/12.
+ * Created by zhou on 2018/3/12.
  */
 public class MoreSelect {
     private List<String> mList;

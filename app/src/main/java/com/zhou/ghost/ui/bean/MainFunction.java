@@ -3,7 +3,7 @@ package com.zhou.ghost.ui.bean;
 import android.content.Intent;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/10/19 15:43
  * @Description:
  */

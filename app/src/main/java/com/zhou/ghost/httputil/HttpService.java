@@ -20,7 +20,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/11/6 16:26
  * @Description:
  */

@@ -1,7 +1,7 @@
 package com.zhou.ghost.httputil;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/11/6 16:28
  * @Description:
  */

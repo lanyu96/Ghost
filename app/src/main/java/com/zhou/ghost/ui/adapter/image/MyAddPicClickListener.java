@@ -14,7 +14,7 @@ import com.zhou.ghost.R;
 
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/12/12 10:33
  * @Description:
  */

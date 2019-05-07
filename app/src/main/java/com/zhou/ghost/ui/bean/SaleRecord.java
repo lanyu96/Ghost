@@ -3,7 +3,7 @@ package com.zhou.ghost.ui.bean;
 import java.io.Serializable;
 
 /**
- * Created by fei on 2018/1/16.
+ * Created by zhou on 2018/1/16.
  */
 public class SaleRecord implements Serializable {
 

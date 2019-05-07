@@ -2,7 +2,7 @@ package com.zhou.ghost.wsutil;
 
 
 /**
- * Created by fei on 2018/2/28.
+ * Created by zhou on 2018/2/28.
  */
 public class WSContants {
 

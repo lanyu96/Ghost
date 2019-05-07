@@ -3,7 +3,7 @@ package com.zhou.ghost.ui.model.base;
 
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/7/30 18:00
  * @Description:
  */

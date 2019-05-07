@@ -7,7 +7,7 @@ import com.zhou.ghost.ui.callback.CallBackPositionListener;
 import com.zhou.ghost.ui.view.base.BaseFragmentView;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/7/27 15:22
  * @Description:
  */

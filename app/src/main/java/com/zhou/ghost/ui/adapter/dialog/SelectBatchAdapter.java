@@ -12,7 +12,7 @@ import com.zhou.ghost.R;
 import com.zhou.ghost.ui.bean.BatchFile;
 
 /**
- * Created by fei on 2018/4/3.
+ * Created by zhou on 2018/4/3.
  */
 public class SelectBatchAdapter extends BaseAdapter {
     private Context mContext;

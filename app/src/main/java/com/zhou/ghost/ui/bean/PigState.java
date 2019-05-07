@@ -1,7 +1,7 @@
 package com.zhou.ghost.ui.bean;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/10/24 14:38
  * @Description:
  */

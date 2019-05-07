@@ -1,7 +1,7 @@
 package com.zhou.ghost.constant;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2019/1/10 20:47
  * @Description:
  */

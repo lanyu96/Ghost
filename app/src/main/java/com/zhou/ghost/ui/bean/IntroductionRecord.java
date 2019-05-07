@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * 引种记录
- * Created by fei on 2018/5/4.
+ * Created by zhou on 2018/5/4.
  */
 public class IntroductionRecord implements Serializable {
 

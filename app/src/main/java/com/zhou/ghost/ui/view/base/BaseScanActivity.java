@@ -15,7 +15,7 @@ import com.zhou.ghost.ui.presenter.base.BasePresenterImpl;
 
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/10/25 14:32
  * @Description:
  */

@@ -23,7 +23,7 @@ import com.zhou.ghost.ui.view.LoginView;
 
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/7/27 16:04
  * @Description:
  */

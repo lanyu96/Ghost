@@ -14,7 +14,7 @@ import com.zhou.ghost.ui.bean.PigFile;
 
 
 /**
- * Created by fei on 2018/4/3.
+ * Created by zhou on 2018/4/3.
  */
 public class SelectPigAdapter extends BaseAdapter {
     private Context mContext;

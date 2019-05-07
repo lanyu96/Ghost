@@ -13,7 +13,7 @@ import com.zhou.ghost.ui.bean.MaterielByHouse;
 
 
 /**
- * Created by fei on 2018/3/2.
+ * Created by zhou on 2018/3/2.
  */
 public class SelectMaterialAdapter extends BaseAdapter {
     private Context mContext;

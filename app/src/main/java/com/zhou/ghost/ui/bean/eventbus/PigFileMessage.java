@@ -1,7 +1,7 @@
 package com.zhou.ghost.ui.bean.eventbus;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/10/24 15:51
  * @Description:
  */

@@ -8,7 +8,7 @@ import android.animation.PropertyValuesHolder;
 import android.widget.LinearLayout;
 
 /**
- * Created by fei on 2018/6/6.
+ * Created by zhou on 2018/6/6.
  */
 public class LayoutAnimator {
     public static void setLayoutTransition(LinearLayout linearLayout, LayoutTransition.TransitionListener listener){

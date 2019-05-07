@@ -8,7 +8,7 @@ import com.zhou.ghost.ui.view.base.BaseActivityView;
 
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/7/27 16:28
  * @Description:
  */

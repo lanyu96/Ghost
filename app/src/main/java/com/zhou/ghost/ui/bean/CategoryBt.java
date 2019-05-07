@@ -4,7 +4,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/10/24 13:32
  * @Description:
  */

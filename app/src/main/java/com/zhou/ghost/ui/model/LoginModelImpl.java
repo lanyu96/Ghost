@@ -20,7 +20,7 @@ import com.zhou.ghost.utils.util.PreferencesService;
 
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/7/27 15:51
  * @Description:
  */

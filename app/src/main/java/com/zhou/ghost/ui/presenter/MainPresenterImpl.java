@@ -20,7 +20,7 @@ import com.zhou.ghost.ui.view.main.MainReportViewFrag;
 
 
 /**
- * @Auther: LIUQNGFEI
+ * @Auther: zhou
  * @Date: 2018/7/27 15:27
  * @Description:
  */
