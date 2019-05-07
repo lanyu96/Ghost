@@ -13,9 +13,4 @@ import com.zhou.ghost.ui.view.base.BaseFragmentView;
  */
 public interface MainPersonView extends BaseFragmentView {
 
-    void showSelectDialog(List<String> list, CallBackPositionListener listener);
-
-    void setFarm(String farm);
-
-    void setField(String field);
 }

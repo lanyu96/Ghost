@@ -31,7 +31,6 @@
             android:src="@drawable/back2"/>
 
         <RelativeLayout
-            android:id="@+id/common_center"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerInParent="true">

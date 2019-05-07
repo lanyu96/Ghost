@@ -19,7 +19,6 @@
 
         <LinearLayout
 
-            android:id="@+id/relativeLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -34,7 +33,6 @@
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/fragment_report_view_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -52,7 +50,6 @@
 
 
         <TextView
-            android:id="@+id/fragment_report_view_title_change_date_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
