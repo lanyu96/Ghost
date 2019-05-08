@@ -6,12 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zhou.ghost.R;
-import com.zhou.ghost.ui.callback.CallBackPositionListener;
-import com.zhou.ghost.ui.dialog.DialogUtils;
 import com.zhou.ghost.ui.presenter.main.MainPersonPresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseFragment;
-
-import java.util.List;
 
 
 public class MainPersonViewFrag extends BaseFragment<MainPersonPresenterImpl> implements MainPersonView {
