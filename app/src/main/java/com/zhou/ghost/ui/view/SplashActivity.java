@@ -124,7 +124,7 @@ public class SplashActivity extends AppCompatActivity {
                     //失败次数计数
                     failCount++;
                 } else if (count == 5) {
-                    Intent intent = new Intent(SplashActivity.this, LoginViewActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, MainViewActivity.class);
                     startActivity(intent);
                     finish();
                 } else if (count % 3 == 0) {
