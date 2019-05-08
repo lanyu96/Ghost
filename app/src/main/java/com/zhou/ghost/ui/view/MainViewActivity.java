@@ -2,6 +2,7 @@ package com.zhou.ghost.ui.view;
 
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,29 +16,26 @@ import com.zhou.ghost.R;
 import com.zhou.ghost.constant.SPConstants;
 import com.zhou.ghost.ui.presenter.MainPresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseActivity;
+import com.zhou.ghost.ui.view.main.MainHomeViewFrag;
+import com.zhou.ghost.ui.view.main.MainOperateViewFrag;
+import com.zhou.ghost.ui.view.main.MainPersonViewFrag;
+import com.zhou.ghost.ui.view.main.MainReportViewFrag;
 import com.zhou.ghost.utils.util.PreferencesService;
+
+import java.util.ArrayList;
+
+import devlight.io.library.ntb.NavigationTabBar;
 
 
 public class MainViewActivity extends BaseActivity<MainPresenterImpl> implements MainView {
 
-    private LinearLayout ll_home;
-    private LinearLayout ll_operate;
-    private LinearLayout ll_report;
-    private LinearLayout ll_person;
-    private ImageView iv_home;
-    private ImageView iv_operate;
-    private ImageView iv_report;
-    private ImageView iv_person;
-    private TextView tv_home;
-    private TextView tv_operate;
-    private TextView tv_report;
-    private TextView tv_person;
 
-    private ViewPager vpContent;
-    private Boolean newStyle;
-    private PreferencesService ps;
-    @SuppressLint("StaticFieldLeak")
-    public static MainViewActivity instance;
+    private MainHomeViewFrag mainHomeViewFrag;
+    private MainOperateViewFrag mainOperateViewFrag;
+    private MainReportViewFrag mainReportViewFrag;
+    private MainPersonViewFrag mainPersonViewFrag;
+    private NavigationTabBar navigationTabBar;
+
     @Override
     public MainPresenterImpl initPresent() {
         return new MainPresenterImpl();
@@ -45,64 +43,102 @@ public class MainViewActivity extends BaseActivity<MainPresenterImpl> implements
 
     @Override
     public void initView() {
-        instance = this;
+//        instance = this;
         setContentView(R.layout.activity_main_view);
-        vpContent = findViewById(R.id.main_vp_content);
-        ll_home = findViewById(R.id.ll_main_home);
-        ll_operate = findViewById(R.id.ll_main_operate);
-        ll_report = findViewById(R.id.ll_main_report);
-        ll_person = findViewById(R.id.ll_main_person);
-        iv_home = findViewById(R.id.iv_main_home);
-        iv_operate = findViewById(R.id.iv_main_operate);
-        iv_report = findViewById(R.id.iv_main_report);
-        iv_person = findViewById(R.id.iv_main_person);
-        tv_home = findViewById(R.id.tv_main_home);
-        tv_operate = findViewById(R.id.tv_main_operate);
-        tv_report = findViewById(R.id.tv_main_report);
-        tv_person = findViewById(R.id.tv_main_person);
+
     }
 
     @Override
     public void initEvent() {
-        ll_home.setOnClickListener(this);
-        ll_operate.setOnClickListener(this);
-        ll_report.setOnClickListener(this);
-        ll_person.setOnClickListener(this);
+
+
+
     }
 
     @Override
     public void initData() {
+        //实例化fragment
 
-//        String style = MyApp.getPreferencesService().getValue(SPConstants.STYLE_ID, "");
-//        if (style.equals("简约")) {
-//
-//            newStyle = true;
-//        }else if (style.equals("标准")) {
-//            newStyle = false;
-//        }
+        mainHomeViewFrag = new MainHomeViewFrag();
+        mainOperateViewFrag = new MainOperateViewFrag();
+        mainReportViewFrag = new MainReportViewFrag();
+        mainPersonViewFrag = new MainPersonViewFrag();
+        getSupportFragmentManager().beginTransaction().add(R.id.act_main_all_fragment_fl, mainHomeViewFrag)
+                .add(R.id.act_main_all_fragment_fl, mainOperateViewFrag)
+                .add(R.id.act_main_all_fragment_fl,mainReportViewFrag)
+                .add(R.id.act_main_all_fragment_fl,mainPersonViewFrag).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().show(mainHomeViewFrag)
+                .hide(mainOperateViewFrag)
+                .hide(mainReportViewFrag)
+                .hide(mainPersonViewFrag).commitAllowingStateLoss();
 
-        vpContent.setAdapter(mPresenter.getFragmentAdapter());
-        vpContent.setOffscreenPageLimit(5);
-        vpContent.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+        navigationTabBar = findViewById(R.id.act_main_ntb_horizontal);
+
+        //设置底部Tab 图标的标题
+        String[] titles = new String[]{"主页", "工具箱","其他", "其他"};
+        ArrayList<View> views = new ArrayList<>();
+        //设置每个View的不同背景
+//        int[] viewBgs = new int[]{Color.RED, Color.GRAY, Color.BLUE};
+        //设置底部Tab的各个图标
+        int[] icons = new int[]{R.drawable.icon_home, R.drawable.icon_setting,R.drawable.icon_qita, R.drawable.icon_me};
+        //用来生成各个不同选项的
+        ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
+        for (int i = 0; i < titles.length; i++) {
+            models.add(
+                    new NavigationTabBar.Model.Builder(
+                            getResources().getDrawable(icons[i]),
+                            Color.parseColor("#00000000"))
+//                        .selectedIcon(getResources().getDrawable(R.drawable.ic_sixth))
+                            .title(titles[i])
+//                            .badgeTitle("NTB")    //角标
+                            .build()
+            );
+            View view = new View(this);
+//            view.setBackgroundColor(viewBgs[i]);
+//            views.add(view);
+        }
+//        viewPager.setAdapter(new TabAdapter(this, views));
+        navigationTabBar.setModels(models);
+        navigationTabBar.setModelIndex(0);
+        navigationTabBar.setOnTabBarSelectedIndexListener(new NavigationTabBar.OnTabBarSelectedIndexListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onStartTabSelected(NavigationTabBar.Model model, int index) {
+                switch (index) {
+                    case 0:
+                        getSupportFragmentManager().beginTransaction().show(mainHomeViewFrag)
+                                .hide(mainPersonViewFrag)
+                                .hide(mainReportViewFrag)
+                                .hide(mainOperateViewFrag).commitAllowingStateLoss();
+                        break;
+                    case 1:
+                        getSupportFragmentManager().beginTransaction().show(mainOperateViewFrag)
+                                .hide(mainPersonViewFrag)
+                                .hide(mainReportViewFrag)
+                                .hide(mainHomeViewFrag).commitAllowingStateLoss();
+                        break;
+                    case 2:
+                        getSupportFragmentManager().beginTransaction().show(mainReportViewFrag)
+                                .hide(mainHomeViewFrag)
+                                .hide(mainPersonViewFrag)
+                                .hide(mainOperateViewFrag).commitAllowingStateLoss();
+                        break;
+                    case 3:
+                        getSupportFragmentManager().beginTransaction().show(mainPersonViewFrag)
+                                .hide(mainHomeViewFrag)
+                                .hide(mainOperateViewFrag)
+                                .hide(mainReportViewFrag)
+                                .commitAllowingStateLoss();
+                }
 
             }
 
             @Override
-            public void onPageSelected(int position) {
-                selectTab(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
+            public void onEndTabSelected(NavigationTabBar.Model model, int index) {
 
             }
         });
-        selectTab(1);
-
     }
-
 
 
     @Override
@@ -114,96 +150,25 @@ public class MainViewActivity extends BaseActivity<MainPresenterImpl> implements
     @Override
     public void onMyClick(View v) {
         switch (v.getId()) {
-            case R.id.ll_main_home:
-                selectTab(0);
-                break;
-            case R.id.ll_main_operate:
-//                String style = MyApp.getPreferencesService().getValue(SPConstants.STYLE_ID, "");
-//                if (style.equals("简约")) {
-//
-//                    newStyle = true;
-//                }else if (style.equals("标准")) {
-//                    newStyle = false;
-//                }
-                selectTab(1);
-                break;
-            case R.id.ll_main_report:
-                selectTab(2);
-                break;
-            case R.id.ll_main_person:
-                selectTab(3);
-                break;
+
         }
     }
 
-    /**
-     * 初始化按钮
-     */
-    private void initTab() {
-        ll_home.setBackgroundResource(R.drawable.main_tab_normal);
-        ll_operate.setBackgroundResource(R.drawable.main_tab_normal);
-        ll_report.setBackgroundResource(R.drawable.main_tab_normal);
-        ll_person.setBackgroundResource(R.drawable.main_tab_normal);
-        iv_home.setImageResource(R.drawable.homepage);
-        iv_operate.setImageResource(R.drawable.setup);
-        iv_report.setImageResource(R.drawable.createtask);
-        iv_person.setImageResource(R.drawable.people);
-        tv_home.setTextColor(MyApp.getRes().getColor(R.color.gray_deep));
-        tv_operate.setTextColor(MyApp.getRes().getColor(R.color.gray_deep));
-        tv_report.setTextColor(MyApp.getRes().getColor(R.color.gray_deep));
-        tv_person.setTextColor(MyApp.getRes().getColor(R.color.gray_deep));
-    }
+        /**
+         * 初始化按钮
+         */
+        private void initTab () {
 
-
-    /**
-     * 选中下方按钮
-     *
-     * @param position
-     */
-    @Override
-    public void selectTab(int position) {
-        initTab();
-
-        switch (position) {
-            case 0://主页
-                vpContent.setCurrentItem(0, false);
-                ll_home.setBackgroundResource(R.drawable.main_tab_checked);
-                iv_home.setImageResource(R.drawable.homepage_fill);
-                tv_home.setTextColor(MyApp.getRes().getColor(R.color.blue_deep));
-                vpContent.setCurrentItem(0);
-                break;
-            case 1://操作
-
-                    vpContent.setCurrentItem(1, false);
-                    ll_operate.setBackgroundResource(R.drawable.main_tab_checked);
-                    iv_operate.setImageResource(R.drawable.setup_fill);
-                    tv_operate.setTextColor(MyApp.getRes().getColor(R.color.blue_deep));
-                    vpContent.setCurrentItem(1);
-
-                break;
-            case 2://报表
-                vpContent.setCurrentItem(2, false);
-                ll_report.setBackgroundResource(R.drawable.main_tab_checked);
-                iv_report.setImageResource(R.drawable.ic_receipt_blue_500_24dp);
-                tv_report.setTextColor(MyApp.getRes().getColor(R.color.blue_deep));
-                vpContent.setCurrentItem(2);
-                break;
-            case 3://个人信息
-                vpContent.setCurrentItem(3, false);
-                ll_person.setBackgroundResource(R.drawable.main_tab_checked);
-                iv_person.setImageResource(R.drawable.people_fill);
-                tv_person.setTextColor(MyApp.getRes().getColor(R.color.blue_deep));
-                vpContent.setCurrentItem(3);
-                break;
         }
-    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //解注册EventBus
-        if (EventBus.getDefault().isRegistered(this)){
-            EventBus.getDefault().unregister(this);
+
+        @Override
+        protected void onDestroy () {
+            super.onDestroy();
+            //解注册EventBus
+            if (EventBus.getDefault().isRegistered(this)) {
+                EventBus.getDefault().unregister(this);
+            }
         }
-    }
+
 }

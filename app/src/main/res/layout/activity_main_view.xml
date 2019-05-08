@@ -1,88 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-   >
+    android:orientation="vertical">
+
     <include
         android:id="@+id/common_title_layout"
         layout="@layout/include_common_title" />
 
-    <LinearLayout
-        android:background="@color/white"
-        android:id="@+id/ll_main_bottom"
-        android:layout_alignParentBottom="true"
+
+
+
+    <FrameLayout
+        android:id="@+id/act_main_all_fragment_fl"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/ll_main_home"
-            style="@style/mian_bottom_tab">
-            <ImageView
-                android:id="@+id/iv_main_home"
-                android:src="@drawable/homepage"
-                style="@style/main_bottom_img"/>
-            <TextView
-                android:id="@+id/tv_main_home"
-                android:text="主页"
-                style="@style/main_bottom_text"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/ll_main_operate"
-            style="@style/mian_bottom_tab">
-            <ImageView
-                android:id="@+id/iv_main_operate"
-                android:src="@drawable/setup"
-                style="@style/main_bottom_img"/>
-            <TextView
-                android:id="@+id/tv_main_operate"
-                android:text="业务"
-                style="@style/main_bottom_text"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/ll_main_report"
-            style="@style/mian_bottom_tab">
-            <ImageView
-                android:id="@+id/iv_main_report"
-                android:src="@drawable/createtask"
-                style="@style/main_bottom_img"/>
-            <TextView
-                android:id="@+id/tv_main_report"
-                android:text="日报"
-                style="@style/main_bottom_text"/>
-        </LinearLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+    <!--分割线-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dddddd"/>
 
-        <LinearLayout
-            android:id="@+id/ll_main_person"
-            style="@style/mian_bottom_tab">
-            <ImageView
-                android:id="@+id/iv_main_person"
-                android:src="@drawable/people"
-                style="@style/main_bottom_img"/>
-            <TextView
-                android:id="@+id/tv_main_person"
-                android:text="我"
-                style="@style/main_bottom_text"/>
-        </LinearLayout>
-    </LinearLayout>
+    <devlight.io.library.ntb.NavigationTabBar
+        android:id="@+id/act_main_ntb_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:ntb_active_color="#25dbe7"
+        app:ntb_animation_duration="0"
+        app:ntb_badge_bg_color="#fff"
+        app:ntb_badged="false"
+        app:ntb_bg_color="#fff"
+        app:ntb_icon_size_fraction="0.5"
+        app:ntb_inactive_color="#8e8e8e"
+        app:ntb_scaled="true"
+        app:ntb_swiped="false"
+        app:ntb_tinted="true"
+        app:ntb_title_mode="all"
+        app:ntb_titled="true" />
 
-    <!--<android.support.v4.view.ViewPager-->
+    <!--&lt;!&ndash;可以自主选择是否可以滑动&ndash;&gt;-->
+    <!--<com.zhou.ghost.ui.anim.ViewPagerSlide-->
         <!--android:id="@+id/main_vp_content"-->
-        <!--android:background="@color/main_background"-->
-        <!--android:layout_below="@id/common_title_layout"-->
-        <!--android:layout_above="@id/ll_main_bottom"-->
         <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"/>-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@id/ll_main_bottom"-->
+        <!--android:layout_below="@id/common_title_layout"-->
+        <!--android:background="@color/main_background" />-->
 
-    <!--可以自主选择是否可以滑动-->
-    <com.zhou.ghost.ui.anim.ViewPagerSlide
-        android:id="@+id/main_vp_content"
-        android:background="@color/main_background"
-        android:layout_below="@id/common_title_layout"
-        android:layout_above="@id/ll_main_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</RelativeLayout>
+</LinearLayout>

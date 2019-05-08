@@ -15,5 +15,4 @@ public interface MainView extends BaseActivityView {
     FragmentManager getSupportFragmentManager();
 
 
-    void selectTab(int position);
 }
