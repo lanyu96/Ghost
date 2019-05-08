@@ -1,9 +1,11 @@
 package com.zhou.ghost.utils;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateTimeHelper {
 
@@ -24,6 +26,121 @@ public class DateTimeHelper {
         Date date = calendar.getTime();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
        return df.format(date);
+    }
+    /**
+     * 将日期以指定格式输出
+     * @param date - new Date()
+     * @param format - "yyyy-MM-dd"
+     * @return 2015-11-23
+     */
+    public static String formatToString(Date date, String format) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat(format,Locale.CHINA);
+            return sdf.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+    /**
+     * 将日期格式的字符串以指定格式输出
+     * @param date - "2015/11/23"
+     * @param format - "yyyy-MM-dd"
+     * @return 2015-11-23
+     */
+    public static String formatToString(String date, String format) {
+        try {
+            Date dt = DateTimeHelper.parseStringToDate(date);
+            SimpleDateFormat sdf = new SimpleDateFormat(format,Locale.CHINA);
+            return sdf.format(dt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+    /**
+     * 将时间戳转化为固定格式的日期字符串 （yyyy-MM-dd HH:mm:ss）
+     * @param time - new Date().getTime()+""
+     * @return 2015-11-23 14:05:20
+     */
+    public static String getStrTime(String time) {
+        if (time.trim().equals("") || time == null)
+            return "";
+        String strTime = null;
+        time = time.substring(0, 10);
+        SimpleDateFormat mFormat = new SimpleDateFormat(FORMAT_24,Locale.CHINA);
+        long ltime = Long.valueOf(time);
+        strTime = mFormat.format(new Date(ltime * 1000L));
+        return strTime;
+    }
+    /**
+     * 将时间戳转化为指定格式日期的字符串
+     * @param time - new Date().getTime()+""
+     * @param format - "yyyy年MM月dd日 hh时mm分ss秒"
+     * @return 2015年11月23日 02时05分36秒
+     */
+    public static String getStrTime(String time, String format) {
+        if (time.trim().equals("") || time == null || time.equals("null"))
+            return "";
+        String strTime = null;
+        time = time.substring(0, 10);
+        SimpleDateFormat mFormat = new SimpleDateFormat(format, Locale.CHINA);
+        long ltime = Long.valueOf(time);
+        strTime = mFormat.format(new Date(ltime * 1000L));
+        return strTime;
+    }
+
+    /**
+     * 将时间time字符串转化为Date对象
+     * @param strTime - 1448208000000
+     * @return Mon Nov 23 00:00:00 GMT+08:00 2015
+     */
+    public static Date parseFormatTimeToDate(String strTime) {
+
+        Date date = new Date();
+        try{
+            date.setTime(Long.parseLong(strTime));
+        }
+        catch(NumberFormatException nfe){
+            nfe.printStackTrace();
+        }
+
+        return date;
+    }
+
+    /**
+     * 获取格式化后Date字符串的Time值
+     * @param dateStr 20151123 或者 2015/11/23 或者2015-11-23
+     * @return 1448208000000
+     * */
+    public static long getParseDateTime(String dateStr){
+        long daterTime = 0;
+        try {
+            Date dt1 = parseStringToDate(dateStr);
+            daterTime = dt1.getTime();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return daterTime;
+    }
+    /**
+     * 将未指定格式的字符串转换成日期类型
+     * @param date - 20151123 或者 2015/11/23 或者2015-11-23
+     * @return Mon Nov 23 00:00:00 GMT+08:00 2015
+     */
+    public static Date parseStringToDate(String date) throws ParseException {
+        Date result = null;
+        String parse = date;
+        parse = parse.replaceFirst("^[0-9]{4}([^0-9]?)", "yyyy$1");
+        parse = parse.replaceFirst("^[0-9]{2}([^0-9]?)", "yy$1");
+        parse = parse.replaceFirst("([^0-9]?)[0-9]{1,2}([^0-9]?)", "$1MM$2");
+        parse = parse.replaceFirst("([^0-9]?)[0-9]{1,2}( ?)", "$1dd$2");
+        parse = parse.replaceFirst("( )[0-9]{1,2}([^0-9]?)", "$1HH$2");
+        parse = parse.replaceFirst("([^0-9]?)[0-9]{1,2}([^0-9]?)", "$1mm$2");
+        parse = parse.replaceFirst("([^0-9]?)[0-9]{1,2}([^0-9]?)", "$1ss$2");
+        SimpleDateFormat format = new SimpleDateFormat(parse,Locale.CHINA);
+        result = format.parse(date);
+        return result;
     }
 
 }

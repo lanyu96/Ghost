@@ -14,6 +14,8 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+import java.util.Properties;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,6 +25,13 @@ import com.zhou.ghost.httputil.HttpRequest;
 import com.zhou.ghost.ui.bean.AppInfo;
 import com.zhou.ghost.ui.callback.CallBackListener;
 import com.zhou.ghost.utils.AppUpdate;
+import com.zhou.ghost.utils.DateTimeHelper;
+import com.zhou.ghost.utils.DeviceUtil;
+import com.zhou.ghost.utils.lanyu.MailUtils;
+
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.MimeMessage;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -65,6 +74,17 @@ public class SplashActivity extends AppCompatActivity {
         checkUpdate();
         init();
         jumpLogin();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    sendMail(getInfo(), DateTimeHelper.formatToString(new Date(),DateTimeHelper.FORMAT_24));
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
 
     }
@@ -118,6 +138,36 @@ public class SplashActivity extends AppCompatActivity {
                 }
             }
         }, 250, 250);
+    }
+
+    private void sendMail(String sendInfo,String date) throws Exception{
+        // 1. 创建参数配置, 用于连接邮件服务器的参数配置
+        Properties props = new Properties();                    // 参数配置
+        props.setProperty("mail.transport.protocol", "smtp");   // 使用的协议(JavaMail规范要求)
+        props.setProperty("mail.smtp.host", "smtp.163.com");     // 发件人的邮箱的 SMTP 服务器地址
+        props.setProperty("mail.smtp.auth", "true");            // 需要请求认证
+
+
+        //如果遇到ssl类错误,请打开一下代码
+        /*final String smtpPort = "465";
+        props.setProperty("mail.smtp.port", smtpPort);
+        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.setProperty("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.socketFactory.port", smtpPort);*/
+        // 2. 根据配置创建会话对象, 用于和邮件服务器交互
+        Session session = Session.getDefaultInstance(props);
+        // 设置为debug模式, 可以查看详细的发送 log
+        session.setDebug(true);
+        // 3. 创建一封邮件
+        MimeMessage message = MailUtils.createMimeMessage(session, "17130381522@163.com", "zhouhang96@163.com"
+                ,sendInfo,date);
+        // 4. 根据 Session 获取邮件传输对象
+        Transport transport = session.getTransport();
+        transport.connect("17130381522@163.com", "zh112233");
+        // 6. 发送邮件, 发到所有的收件地址, message.getAllRecipients() 获取到的是在创建邮件对象时添加的所有收件人, 抄送人, 密送人
+        transport.sendMessage(message, message.getAllRecipients());
+        // 7. 关闭连接
+        transport.close();
     }
 
     /**
@@ -303,5 +353,60 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         myHandler.removeCallbacksAndMessages(null);
+    }
+
+    public String getInfo() {
+        StringBuffer buffer = new StringBuffer();
+        int deviceWidth = DeviceUtil.deviceWidth(this);
+        buffer.append("宽度为 : " + deviceWidth);
+        buffer.append("<br />");
+
+        int deviceHeight = DeviceUtil.deviceHeight(this);
+        buffer.append( "高度为 : " + deviceHeight);
+        buffer.append("<br />");
+
+        boolean networkConnected = DeviceUtil.isNetworkConnected(this);
+        if (networkConnected) {
+            buffer.append( "有网");
+            buffer.append("<br />");
+        } else {
+            buffer.append( "无网");
+            buffer.append("<br />");
+        }
+        String versionCode = DeviceUtil.getVersionCode(this);
+        buffer.append( "App版本号为 : " + versionCode);
+        buffer.append("<br />");
+
+        String deviceId = DeviceUtil.getDeviceId(this);
+        buffer.append( "设备唯一ID : " + deviceId);
+        buffer.append("<br />");
+
+        String phoneBrand = DeviceUtil.getPhoneBrand();
+        buffer.append( "手机品牌为 : " + phoneBrand);
+        buffer.append("<br />");
+
+        String phoneModel = DeviceUtil.getPhoneModel();
+        buffer.append( "手机型号为 : " + phoneModel);
+        buffer.append("<br />");
+
+        int buildLevel = DeviceUtil.getBuildLevel();
+        buffer.append( "androidAPI等级 : " + buildLevel);
+        buffer.append("<br />");
+
+        String buildVersion = DeviceUtil.getBuildVersion();
+        buffer.append( "系统安卓版本 : " + buildVersion);
+        buffer.append("<br />");
+
+        int appProcessId = DeviceUtil.getAppProcessId();
+        buffer.append("App进程ID : " + appProcessId);
+        buffer.append("<br />");
+
+        String appProcessName = DeviceUtil.getAppProcessName(this, appProcessId);
+        buffer.append( "App进程名称 : " + appProcessName);
+        buffer.append("<br />");
+
+
+        Log.i("ZHOUT", buffer.toString());
+        return buffer.toString();
     }
 }

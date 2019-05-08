@@ -18,7 +18,7 @@ public class MailUtils {
      */
 
 
-    public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail) throws Exception {
+    public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail,String sendInfo,String date) throws Exception {
         // 1. 创建一封邮件
         MimeMessage message = new MimeMessage(session);
 
@@ -32,12 +32,12 @@ public class MailUtils {
 
 
         // 4. Subject: 邮件主题
-        message.setSubject("客户端错误信息", "UTF-8");
+        message.setSubject("蓝域工具箱报告"+date, "UTF-8");
 
 
         // 5. Content: 邮件正文(可以使用html标签)
-        message.setContent("这是一条测试邮件", "text/html;charset=UTF-8");
-
+        message.setContent(sendInfo, "text/html;charset=UTF-8");
+//        message.setContent(sendInfo, "charset=UTF-8");
 
         // 6. 设置发件时间
         message.setSentDate(new Date());
