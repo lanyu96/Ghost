@@ -16,6 +16,8 @@ public class MailUtils {
      * @return
      * @throws Exception
      */
+
+
     public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail) throws Exception {
         // 1. 创建一封邮件
         MimeMessage message = new MimeMessage(session);
