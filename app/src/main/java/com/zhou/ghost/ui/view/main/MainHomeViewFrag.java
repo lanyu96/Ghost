@@ -10,7 +10,6 @@ import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
@@ -21,7 +20,6 @@ import org.greenrobot.eventbus.EventBus;
 import com.zhou.ghost.R;
 import com.zhou.ghost.ui.presenter.main.MainHomePresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseFragment;
-import com.zhou.ghost.ui.view.tool.QRCodeViewActivity;
 
 
 public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implements MainHomeView {
@@ -29,7 +27,7 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
 
     //    private ImageView scanIv;
     private static final int REQUEST_CODE_SCAN = 1919;
-    private LinearLayout qrCodeScanLl;
+
 
     @Override
     public MainHomePresenterImpl initPresent() {
@@ -38,13 +36,13 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
 
     @Override
     public View setContentUI(LayoutInflater inflater, ViewGroup container) {
-        View view = View.inflate(getContext(), R.layout.fragment_main_home_second_view, null);
+        View view = View.inflate(getContext(), R.layout.fragment_main_home_view, null);
         return view;
     }
 
     @Override
     public void initView() {
-        qrCodeScanLl = (LinearLayout) findViewById(R.id.fragment_tool_qr_code_scan_ll);
+
 
     }
 
@@ -52,7 +50,7 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
 
     @Override
     public void initEvent() {
-        qrCodeScanLl.setOnClickListener(this);
+
     }
 
     @Override
@@ -106,10 +104,7 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
     @Override
     public void onMyClick(View v) {
         switch (v.getId()) {
-            //二维码转文字
-            case R.id.fragment_tool_qr_code_scan_ll:
-                startActivity(new Intent(getContext(), QRCodeViewActivity.class));
-                break;
+
         }
     }
 }
