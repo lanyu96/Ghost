@@ -1,26 +1,18 @@
 package com.zhou.ghost.ui.view;
 
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import org.greenrobot.eventbus.EventBus;
-
-import com.zhou.ghost.MyApp;
 import com.zhou.ghost.R;
-import com.zhou.ghost.constant.SPConstants;
 import com.zhou.ghost.ui.presenter.MainPresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseActivity;
 import com.zhou.ghost.ui.view.main.MainHomeViewFrag;
 import com.zhou.ghost.ui.view.main.MainOperateViewFrag;
 import com.zhou.ghost.ui.view.main.MainPersonViewFrag;
 import com.zhou.ghost.ui.view.main.MainReportViewFrag;
-import com.zhou.ghost.utils.util.PreferencesService;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
