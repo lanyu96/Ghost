@@ -63,6 +63,8 @@
         </activity>
 
         <activity android:name=".ui.view.tool.QRCodeViewActivity" />
+
+        <activity android:name=".ui.view.tool.CreateQRViewActivity" />
     </application>
 
 </manifest>

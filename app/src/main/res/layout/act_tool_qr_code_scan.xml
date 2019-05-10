@@ -23,7 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
-    <TextView
+    <EditText
+        android:id="@+id/act_tool_qr_code_scan_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

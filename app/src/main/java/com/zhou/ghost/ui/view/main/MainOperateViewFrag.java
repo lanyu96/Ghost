@@ -10,12 +10,15 @@ import android.widget.LinearLayout;
 import com.zhou.ghost.R;
 import com.zhou.ghost.ui.presenter.main.MainOperatePresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseFragment;
+import com.zhou.ghost.ui.view.tool.CreateQRViewActivity;
 import com.zhou.ghost.ui.view.tool.QRCodeViewActivity;
 
 
 public class MainOperateViewFrag extends BaseFragment<MainOperatePresenterImpl> implements MainOperateView {
 
     private LinearLayout qrCodeScanLl;
+    private LinearLayout createQRLl;
+
 
     @Override
     public MainOperatePresenterImpl initPresent() {
@@ -31,12 +34,13 @@ public class MainOperateViewFrag extends BaseFragment<MainOperatePresenterImpl> 
     @Override
     public void initView() {
         qrCodeScanLl = (LinearLayout) findViewById(R.id.fragment_tool_qr_code_scan_ll);
-
+        createQRLl = (LinearLayout) findViewById(R.id.fragment_tool_qr_code_create_ll);
     }
 
     @Override
     public void initEvent() {
         qrCodeScanLl.setOnClickListener(this);
+        createQRLl.setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +57,9 @@ public class MainOperateViewFrag extends BaseFragment<MainOperatePresenterImpl> 
             //二维码转文字
             case R.id.fragment_tool_qr_code_scan_ll:
                 startActivity(new Intent(getContext(), QRCodeViewActivity.class));
+                break;
+            case R.id.fragment_tool_qr_code_create_ll:
+                startActivity(new Intent(getContext(), CreateQRViewActivity.class));
                 break;
         }
     }
