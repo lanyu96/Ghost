@@ -24,7 +24,7 @@ android {
 
     productFlavors {
         agent {
-            applicationId = "com.${Params.branchName}.zhou.client"
+            applicationId = "com.${Params.branchName}.zhou.lanyu96.client"
             buildConfigField "String", "branchName", "\"${Params.branchName}\""
 
         }
