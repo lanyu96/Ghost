@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.allenliu.versionchecklib.v2.AllenVersionChecker;
 
@@ -14,6 +15,7 @@ import com.zhou.ghost.ui.callback.CallBackPositionListener;
 import com.zhou.ghost.ui.dialog.DialogUtils;
 import com.zhou.ghost.ui.presenter.LoginPresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseActivity;
+import com.zhou.ghost.utils.util.ToastUtils;
 
 import static com.zhou.ghost.httputil.HttpContants.JUMPLOGIN;
 
@@ -108,11 +110,13 @@ public class LoginViewActivity extends BaseActivity<LoginPresenterImpl> implemen
 
         switch (v.getId()) {
             case R.id.login_bt_login://登陆按钮
-                if (JUMPLOGIN) {
-                    gotoMainAct();
-                } else {
-                    mPresenter.login();
-                }
+                new ToastUtils(getContext()).showToastStrAndImg(getContext(), "啊啊啊", R.drawable.icon);
+
+//                if (JUMPLOGIN) {
+//                    gotoMainAct();
+//                } else {
+//                    mPresenter.login();
+//                }
 
                 break;
 
