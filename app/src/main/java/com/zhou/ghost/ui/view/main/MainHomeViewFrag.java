@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.bean.ZxingConfig;
 import com.yzq.zxinglibrary.common.Constant;
@@ -20,6 +23,10 @@ import org.greenrobot.eventbus.EventBus;
 import com.zhou.ghost.R;
 import com.zhou.ghost.ui.presenter.main.MainHomePresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseFragment;
+import com.zhou.ghost.utils.lanyu.GlideImageLoader;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implements MainHomeView {
@@ -42,10 +49,41 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
 
     @Override
     public void initView() {
-
+        initBanner();
 
     }
 
+    private void initBanner() {
+
+        Banner banner = (Banner) findViewById(R.id.fragment_main_home_banner);
+        //设置banner样式
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+        //设置图片加载器
+        banner.setImageLoader(new GlideImageLoader());
+        //设置图片集合
+
+        List<Integer> image = new ArrayList<>();
+        image.add(R.drawable.icon);
+        image.add(R.drawable.welcome_bg);
+        banner.setImages(image);
+
+        //设置banner动画效果
+        banner.setBannerAnimation(Transformer.DepthPage);
+        //设置标题集合（当banner样式有显示title时）
+//        List<String> titles = new ArrayList<>();
+//        titles.add("图1");
+//        titles.add("图2");
+//        banner.setBannerTitles(null);
+        //设置自动轮播，默认为true
+        banner.isAutoPlay(true);
+        //设置轮播时间
+        banner.setDelayTime(3000);
+        //设置指示器位置（当banner模式中有指示器时）
+        banner.setIndicatorGravity(BannerConfig.CENTER);
+        //banner设置方法全部调用完毕时最后调用
+        banner.start();
+
+    }
 
 
     @Override
@@ -62,11 +100,12 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
 
     /**
      * 给字符串或者数字添加下划线
+     *
      * @param str
      * @return
      */
     public Spanned underLine(String str) {
-        return Html.fromHtml("<u>" + str+"</u>");
+        return Html.fromHtml("<u>" + str + "</u>");
 
 
     }

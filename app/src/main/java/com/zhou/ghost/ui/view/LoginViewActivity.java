@@ -110,7 +110,7 @@ public class LoginViewActivity extends BaseActivity<LoginPresenterImpl> implemen
 
         switch (v.getId()) {
             case R.id.login_bt_login://登陆按钮
-                new ToastUtils(getContext()).showToastStrAndImg(getContext(), "啊啊啊", R.drawable.icon);
+                new ToastUtils(getContext()).showToastFree(getContext(), "啊啊啊", R.drawable.icon);
 
 //                if (JUMPLOGIN) {
 //                    gotoMainAct();

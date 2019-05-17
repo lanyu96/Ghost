@@ -3,8 +3,14 @@ package com.zhou.ghost.utils.util;
 import android.app.Activity;
 import android.content.Context;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.zhou.ghost.R;
 
 
 /**
@@ -65,6 +71,26 @@ public class ToastUtils {
 		toast.show();
 		return toast;
 	}
+
+	/**
+	 * toast 自定义
+	 */
+	public Toast showToastFree(Context ctx,String str,int resID){
+		toast = Toast.makeText(ctx, str, Toast.LENGTH_SHORT);
+		LinearLayout toastView = (LinearLayout) LayoutInflater.from(ctx).inflate(R.layout.toast_hor_view, null);
+		ImageView iv = toastView.findViewById(R.id.toast_iv);
+		iv.setImageResource(resID);
+		TextView tv = toastView.findViewById(R.id.toast_tv);
+		tv.setText(str);
+		toast.setGravity(Gravity.CENTER,0,0);
+		toast.setView(toastView);
+		toast.show();
+		return toast;
+	}
+
+
+
+
 	public void showToast(final Context ctx, final int duration,
                           final String text) {
 

@@ -86,4 +86,7 @@ dependencies {
 
     //fragment
     implementation 'devlight.io:navigationtabbar:1.2.5'
+
+    //轮播
+    implementation 'com.youth.banner:banner:1.4.10'
 }
