@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.zhou.ghost.R;
 import com.zhou.ghost.ui.presenter.tool.CreateQRPresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseActivity;
+import com.zhou.ghost.utils.lanyu.ImgUtils;
 import com.zhou.ghost.utils.lanyu.ZXingUtils;
 
 public class CreateQRViewActivity extends BaseActivity<CreateQRPresenterImpl> {
@@ -18,6 +19,7 @@ public class CreateQRViewActivity extends BaseActivity<CreateQRPresenterImpl> {
     private Button createBtn;
     private EditText createEt;
     private ImageView createIv;
+    private Bitmap bitmap1;
 
     @Override
     public CreateQRPresenterImpl initPresent() {
@@ -30,6 +32,11 @@ public class CreateQRViewActivity extends BaseActivity<CreateQRPresenterImpl> {
         createBtn = findViewById(R.id.act_tool_qr_create_btn);
         createEt = findViewById(R.id.act_main_tool_qr_et);
         createIv = findViewById(R.id.act_main_tool_qr_iv);
+//        //长按后显示的 Item
+//        final String[] items = new String[] { "保存图片"};
+////图片转成Bitmap数组
+//        final Bitmap[] bitmap = new Bitmap[1];
+
     }
 
     @Override
@@ -40,7 +47,13 @@ public class CreateQRViewActivity extends BaseActivity<CreateQRPresenterImpl> {
     @Override
     public void initEvent() {
         createBtn.setOnClickListener(this);
-
+        createIv.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                ImgUtils.saveImageToGallery(getContext(),bitmap1);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -94,6 +107,8 @@ public class CreateQRViewActivity extends BaseActivity<CreateQRPresenterImpl> {
 //        }
 //    }
 
+
+
     @Override
     public void onMyClick(View v) {
         switch (v.getId()) {
@@ -105,7 +120,7 @@ public class CreateQRViewActivity extends BaseActivity<CreateQRPresenterImpl> {
                 }
                 Bitmap qrImage = ZXingUtils.createQRImage("" + create, 500, 500);
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon);
-                Bitmap bitmap1 = ZXingUtils.addLogo(qrImage, bitmap);
+                bitmap1 = ZXingUtils.addLogo(qrImage, bitmap);
                 createIv.setImageBitmap(bitmap1);
 //                createQRCodeImage(""+create);
 
