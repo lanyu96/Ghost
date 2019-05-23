@@ -13,7 +13,7 @@
         android:background="?attr/base_color"
         android:gravity="left"
         android:paddingLeft="20dp"
-        android:text="工具箱"
+        android:text="主页"
         android:textColor="@color/white"
         android:textSize="22sp" />
 
@@ -32,7 +32,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp" />
 
-
+        <Button
+            android:id="@+id/fragment_main_home_refresh_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="刷新轮播"
+            />
         </LinearLayout>
 
     </ScrollView>

@@ -10,6 +10,7 @@ import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -23,6 +24,7 @@ import org.greenrobot.eventbus.EventBus;
 import com.zhou.ghost.R;
 import com.zhou.ghost.ui.presenter.main.MainHomePresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseFragment;
+import com.zhou.ghost.utils.cleancache.CleanCacheUtil;
 import com.zhou.ghost.utils.lanyu.GlideImageLoader;
 
 import java.util.ArrayList;
@@ -34,6 +36,9 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
 
     //    private ImageView scanIv;
     private static final int REQUEST_CODE_SCAN = 1919;
+    private List<String> urlStr;
+    private Button refreshBtn;
+    private Banner banner;
 
 
     @Override
@@ -50,23 +55,32 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
     @Override
     public void initView() {
         initBanner();
+        refreshBtn = (Button) findViewById(R.id.fragment_main_home_refresh_btn);
 
     }
 
     private void initBanner() {
 
-        Banner banner = (Banner) findViewById(R.id.fragment_main_home_banner);
+        banner = (Banner) findViewById(R.id.fragment_main_home_banner);
         //设置banner样式
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
         //设置图片集合
 
-        List<Integer> image = new ArrayList<>();
-        image.add(R.drawable.icon);
-        image.add(R.drawable.welcome_bg);
-        banner.setImages(image);
+//        List<Integer> image = new ArrayList<>();
+//        image.add(R.drawable.icon);
+//        image.add(R.drawable.welcome_bg);
+        urlStr = new ArrayList<>();
+        urlStr.add("http://47.110.9.80:8080/lanyu/img/img1.jpg");
+        urlStr.add("http://47.110.9.80:8080/lanyu/img/img2.jpg");
+        urlStr.add("http://47.110.9.80:8080/lanyu/img/img3.jpg");
+        urlStr.add("http://47.110.9.80:8080/lanyu/img/img4.jpg");
 
+
+        banner.setImages(urlStr);
+
+        banner.releaseBanner();
         //设置banner动画效果
         banner.setBannerAnimation(Transformer.DepthPage);
         //设置标题集合（当banner样式有显示title时）
@@ -82,12 +96,26 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
         banner.setIndicatorGravity(BannerConfig.CENTER);
         //banner设置方法全部调用完毕时最后调用
         banner.start();
+//        banner.update(urlStr);
 
     }
 
 
     @Override
     public void initEvent() {
+        refreshBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                urlStr.remove(0);
+//                banner.setImageLoader(new GlideImageLoader());
+//                urlStr.add("http://192.168.31.7:8081/lanyu/img/img4.jpg");
+//                banner.update(urlStr);
+//                CleanCacheUtil.clearAllCache(getContext());
+                CleanCacheUtil.cleanInternalCache(getContext());
+
+            }
+        });
+
 
     }
 
