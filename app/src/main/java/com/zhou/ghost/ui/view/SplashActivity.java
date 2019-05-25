@@ -248,10 +248,10 @@ public class SplashActivity extends AppCompatActivity {
                 //检查更新
                 String nowVersion = MyApp.getVersion();
                 //服务器端版本号
-                String newVersion = appInfo.getResult().get(0).getFversion();
+//                String newVersion = appInfo.getResult().get(0).getFversion();
 
                 //test
-//                String newVersion = "1.0.4";
+                String newVersion = "1.2.0";
                 if (nowVersion.equals(newVersion)) {
                     hideProgress();
                     Toast.makeText(context, "已是最新版本", Toast.LENGTH_SHORT).show();
@@ -259,11 +259,13 @@ public class SplashActivity extends AppCompatActivity {
 
                 Log.i("TEST11", newVersion);
                 //新版本App的下载地址
-                String downloadUrl = appInfo.getResult().get(0).getFaddress();
+//                String downloadUrl = appInfo.getResult().get(0).getFaddress();
+                String downloadUrl = "http://47.110.9.80:8080/lanyu/taiji/taiji.apk";
                 //版本更新提醒的标题
                 String title = "发现新版本";
                 //版本更新提醒的详细信息
-                String updateContent = appInfo.getResult().get(0).getFcontext().replace("##", "\n");
+//                String updateContent = appInfo.getResult().get(0).getFcontext().replace("##", "\n");
+                String updateContent ="更新了一些功能";
                 //如果当前版本与远程最新版本不符,则调用App更新下载的方法
 
                 if (!nowVersion.equals(newVersion)) {
@@ -282,6 +284,16 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void downloadApk(Context context) {
+        String downloadUrl = "http://47.110.9.80:8080/lanyu/taiji/taiji.apk";
+        String title = "发现新版本";
+        //版本更新提醒的详细信息
+//                String updateContent = appInfo.getResult().get(0).getFcontext().replace("##", "\n");
+        String updateContent ="更新了一些功能";
+        //如果当前版本与远程最新版本不符,则调用App更新下载的方法
+            AppUpdate.sendRequest(context, title, updateContent, downloadUrl);
     }
 
     //App开启时 更新 错误弹窗
