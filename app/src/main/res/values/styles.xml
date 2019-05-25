@@ -171,7 +171,9 @@
     </style>
 
     <style name="fragment_main_tool_icon_ll">
-        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
         <item name="android:layout_height">80dp</item>
         <item name="android:orientation">vertical</item>
     </style>

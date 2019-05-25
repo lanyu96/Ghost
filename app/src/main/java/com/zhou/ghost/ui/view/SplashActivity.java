@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import java.util.TimerTask;
 
 import com.zhou.ghost.MyApp;
 import com.zhou.ghost.R;
+import com.zhou.ghost.constant.SPConstants;
 import com.zhou.ghost.httputil.HttpRequest;
 import com.zhou.ghost.ui.bean.AppInfo;
 import com.zhou.ghost.ui.callback.CallBackListener;
@@ -75,16 +77,22 @@ public class SplashActivity extends AppCompatActivity {
         init();
         jumpLogin();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    sendMail(getInfo(), DateTimeHelper.formatToString(new Date(),DateTimeHelper.FORMAT_24));
-                }catch (Exception e){
-                    e.printStackTrace();
+        if (TextUtils.isEmpty(MyApp.getPreferencesService().getValue(SPConstants.IS_FIRST, ""))) {
+            MyApp.getPreferencesService().save(SPConstants.IS_FIRST, "no_first_start");
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        sendMail(getInfo(), DateTimeHelper.formatToString(new Date(),DateTimeHelper.FORMAT_24));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
-            }
-        }).start();
+            }).start();
+        }
+
+
+
 
 
     }

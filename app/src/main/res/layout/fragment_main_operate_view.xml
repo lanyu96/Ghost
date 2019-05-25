@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <!--第一个图标-->
+
                 <LinearLayout
                     android:id="@+id/fragment_tool_qr_code_scan_ll"
                     style="@style/fragment_main_tool_icon_ll">
@@ -52,6 +53,31 @@
                 <!--第二个图标-->
                 <LinearLayout
                     android:id="@+id/fragment_tool_qr_code_create_ll"
+                    style="@style/fragment_main_tool_icon_ll">
+                    <ImageView
+                        android:src="@drawable/icon_qita"
+                        style="@style/fragment_main_tool_icon_iv" />
+                    <TextView
+                        android:text="二维码生成"
+                        style="@style/fragment_main_tool_icon_tv" />
+
+                </LinearLayout>
+                <!--第三个图标-->
+                <LinearLayout
+                    android:visibility="invisible"
+                    style="@style/fragment_main_tool_icon_ll">
+                    <ImageView
+                        android:src="@drawable/icon_qita"
+                        style="@style/fragment_main_tool_icon_iv" />
+                    <TextView
+                        android:text="二维码生成"
+                        style="@style/fragment_main_tool_icon_tv" />
+
+                </LinearLayout>
+
+                <!--第四个图标-->
+                <LinearLayout
+                    android:visibility="invisible"
                     style="@style/fragment_main_tool_icon_ll">
                     <ImageView
                         android:src="@drawable/icon_qita"

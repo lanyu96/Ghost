@@ -48,12 +48,12 @@ public class AppUpdate {
 
 
 //        强制更新
-        builder.setForceUpdateListener(new ForceUpdateListener() {
-            @Override
-            public void onShouldForceUpdate() {
-//                Toast.makeText(context, "取消下载 ", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        builder.setForceUpdateListener(new ForceUpdateListener() {
+//            @Override
+//            public void onShouldForceUpdate() {
+////                Toast.makeText(context, "取消下载 ", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         //设置下载路径
 //        builder.setDownloadAPKPath(Environment.getExternalStorageDirectory() + "/ALLEN/AllenVersionPath2/");

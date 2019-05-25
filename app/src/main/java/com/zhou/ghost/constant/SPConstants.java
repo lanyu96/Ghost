@@ -37,4 +37,8 @@ public class SPConstants {
      */
     public final static String STYLE_ID = "style_id";
 
+    /**
+     * 应用是否第一次启动
+     */
+    public final static String IS_FIRST = "is_first";
 }
