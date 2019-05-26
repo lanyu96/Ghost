@@ -60,6 +60,8 @@ public class HttpRequest {
         }));
     }
 
+
+
     public static void getData(final BaseView context, final boolean tryAgain, final HashMap<String, String> jsonParams, final CallBackListener<JsonObject> listener) {
         checkParams(jsonParams);
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), DataUtils.getJsonString(jsonParams));

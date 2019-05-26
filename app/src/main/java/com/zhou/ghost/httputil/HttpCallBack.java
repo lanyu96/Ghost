@@ -50,6 +50,12 @@ public class HttpCallBack implements Callback<JsonObject> {
         mBaseView = context;
     }
 
+    public HttpCallBack(BaseView context, CallBackListener<JsonObject> listener) {
+        this.listener = listener;
+        mBaseView = context;
+
+    }
+
     @Override
     public void onResponse(Call<JsonObject> call, final Response<JsonObject> response) {
         if(mBaseView==null){

@@ -8,6 +8,9 @@ import java.util.List;
 import com.zhou.ghost.ui.bean.AppInfo;
 import com.zhou.ghost.ui.bean.Login;
 import com.zhou.ghost.ui.bean.base.BaseObjectBean;
+import com.zhou.ghost.ui.bean.weather.WeatherBean;
+import com.zhou.ghost.ui.bean.weather.WeatherJson;
+
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -15,9 +18,12 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * @Auther: zhou
@@ -38,8 +44,8 @@ public interface HttpService {
     @POST("appinterface/getData.json")
     Call<JsonObject> getData(@Body RequestBody info);
 
-    @POST("appinterface/getEnumInfo.json")
-    Call<JsonObject> getEumInfo(@Body RequestBody info);
+//    @POST("appinterface/getEnumInfo.json")
+//    Call<JsonObject> getEumInfo(@Body RequestBody info);
 
     @POST("appinterface/uploadData.json")
     Call<JsonObject> uploadData(@Body RequestBody info);
@@ -73,13 +79,21 @@ public interface HttpService {
     @POST("getAppRecord.json")
     Call<AppInfo> getAppInfo(@Field("newString") String info, @Field("appName") String appName);
 
-    @POST("appinterface/changePassword.json")
-    Call<JsonObject> changePassword(@Body RequestBody info);
+//    @GET("weather/{weather-type}?{parameters}")
+//    Call<ResponseBody> getWeatherInfo(@Query("weather-type") String weatherType, @Query("parameters") String parameters);
+    @GET("weather/now?location=beijing&key=e01c51cd6f67440a93cc2b764a93d122")
+    Call<WeatherBean> getWeatherInfo();
 
-    @POST("appinterface/getNumByBuilding.json")
-    Call<JsonObject> getNumByBuilding(@Body RequestBody info);
 
-    @POST("appinterface/rpt.json")
-    Call<JsonObject> getRptData(@Body RequestBody info);
+//    @POST("appinterface/changePassword.json")
+//    Call<JsonObject> changePassword(@Body RequestBody info);
+//
+//    @POST("appinterface/getNumByBuilding.json")
+//    Call<JsonObject> getNumByBuilding(@Body RequestBody info);
+//
+//    @POST("appinterface/rpt.json")
+//    Call<JsonObject> getRptData(@Body RequestBody info);
+
+
 
 }

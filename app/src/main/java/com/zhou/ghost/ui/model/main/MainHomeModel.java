@@ -11,4 +11,5 @@ import com.zhou.ghost.ui.model.base.BaseModel;
  */
 public interface MainHomeModel extends BaseModel {
 
+    void getWeatherInfo();
 }

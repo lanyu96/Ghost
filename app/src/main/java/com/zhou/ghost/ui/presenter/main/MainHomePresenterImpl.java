@@ -26,6 +26,11 @@ public class MainHomePresenterImpl extends BasePresenterImpl<MainHomeView, MainH
 
     }
 
+
+    public void getWeatherInfo() {
+        mModel.getWeatherInfo();
+    }
+
     @Override
     public MainHomeModel initModel() {
         return new MainHomeModelImpl();

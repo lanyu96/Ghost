@@ -56,6 +56,7 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
     public void initView() {
         initBanner();
         refreshBtn = (Button) findViewById(R.id.fragment_main_home_refresh_btn);
+        mPresenter.getWeatherInfo();
 
     }
 

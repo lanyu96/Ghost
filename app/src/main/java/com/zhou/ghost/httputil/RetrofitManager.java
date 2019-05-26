@@ -128,6 +128,33 @@ public class RetrofitManager {
         // log用拦截器
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         // 开发模式记录整个body，否则只记录基本信息如返回200，http协议版本等
+//        if (BuildConfig.DEBUG) {
+//            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+//        } else {
+//            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+//        }
+        builder.addInterceptor(loggingInterceptor);
+        OkHttpClient client = builder.build();
+        Retrofit build = new Retrofit.Builder()
+                .baseUrl(HttpContants.APP_URL)
+                //空异常
+                .addConverterFactory(new NullOnEmptyConverterFactory())
+                //设置 Json 转换器
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+        return build.create(HttpService.class);
+    }
+
+    /**
+     * 和风天气
+     * @return
+     */
+    public static HttpService getWeatherInfo() {
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        // log用拦截器
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        // 开发模式记录整个body，否则只记录基本信息如返回200，http协议版本等
         if (BuildConfig.DEBUG) {
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         } else {
@@ -136,7 +163,7 @@ public class RetrofitManager {
         builder.addInterceptor(loggingInterceptor);
         OkHttpClient client = builder.build();
         Retrofit build = new Retrofit.Builder()
-                .baseUrl(HttpContants.APP_URL)
+                .baseUrl(HttpContants.WEATHER_URL)
                 //空异常
                 .addConverterFactory(new NullOnEmptyConverterFactory())
                 //设置 Json 转换器
