@@ -128,11 +128,11 @@ public class RetrofitManager {
         // log用拦截器
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         // 开发模式记录整个body，否则只记录基本信息如返回200，http协议版本等
-//        if (BuildConfig.DEBUG) {
-//            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-//        } else {
-//            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
-//        }
+        if (BuildConfig.DEBUG) {
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        } else {
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+        }
         builder.addInterceptor(loggingInterceptor);
         OkHttpClient client = builder.build();
         Retrofit build = new Retrofit.Builder()

@@ -18,6 +18,7 @@ public class MainOperateViewFrag extends BaseFragment<MainOperatePresenterImpl> 
 
     private LinearLayout qrCodeScanLl;
     private LinearLayout createQRLl;
+    private LinearLayout brithdayLl;
 
 
     @Override
@@ -35,12 +36,14 @@ public class MainOperateViewFrag extends BaseFragment<MainOperatePresenterImpl> 
     public void initView() {
         qrCodeScanLl = (LinearLayout) findViewById(R.id.fragment_tool_qr_code_scan_ll);
         createQRLl = (LinearLayout) findViewById(R.id.fragment_tool_qr_code_create_ll);
+        brithdayLl = (LinearLayout) findViewById(R.id.fragment_tool_birthday_ll);
     }
 
     @Override
     public void initEvent() {
         qrCodeScanLl.setOnClickListener(this);
         createQRLl.setOnClickListener(this);
+        brithdayLl.setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +63,9 @@ public class MainOperateViewFrag extends BaseFragment<MainOperatePresenterImpl> 
                 break;
             case R.id.fragment_tool_qr_code_create_ll:
                 startActivity(new Intent(getContext(), CreateQRViewActivity.class));
+                break;
+            case R.id.fragment_tool_birthday_ll://生辰
+
                 break;
         }
     }
