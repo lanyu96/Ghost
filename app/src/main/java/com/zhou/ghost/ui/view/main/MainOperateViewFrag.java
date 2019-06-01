@@ -7,9 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.zhou.ghost.MyApp;
 import com.zhou.ghost.R;
+import com.zhou.ghost.constant.SPConstants;
 import com.zhou.ghost.ui.presenter.main.MainOperatePresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseFragment;
+import com.zhou.ghost.ui.view.tool.BirthdayViewActivity;
 import com.zhou.ghost.ui.view.tool.CreateQRViewActivity;
 import com.zhou.ghost.ui.view.tool.QRCodeViewActivity;
 
@@ -65,6 +68,12 @@ public class MainOperateViewFrag extends BaseFragment<MainOperatePresenterImpl> 
                 startActivity(new Intent(getContext(), CreateQRViewActivity.class));
                 break;
             case R.id.fragment_tool_birthday_ll://生辰
+                if (MyApp.getPreferencesService().getValue(SPConstants.BIRTHDAY_DATE, "").equals("")) {
+                    startActivity(new Intent(getContext(), BirthdayViewActivity.class));
+                } else {
+
+                }
+
 
                 break;
         }

@@ -41,4 +41,9 @@ public class SPConstants {
      * 应用是否第一次启动
      */
     public final static String IS_FIRST = "is_first";
+
+    /**
+     * 生辰出生日期记录
+     */
+    public final static String BIRTHDAY_DATE = "birthday_date";
 }

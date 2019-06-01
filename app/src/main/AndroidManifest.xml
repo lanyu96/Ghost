@@ -71,6 +71,8 @@
         <activity android:name=".ui.view.tool.QRCodeViewActivity" />
 
         <activity android:name=".ui.view.tool.CreateQRViewActivity" />
+
+        <activity android:name=".ui.view.tool.BirthdayViewActivity" />
     </application>
 
 </manifest>
