@@ -1,5 +1,6 @@
 package com.zhou.ghost.ui.view.tool;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -45,6 +46,8 @@ public class BirthdayViewActivity extends BaseActivity<BirthdayPresenterImpl> im
                    @Override
                    public void onDateClickListener(String date) {
                        MyApp.getPreferencesService().save(SPConstants.BIRTHDAY_DATE,date);
+                       startActivity(new Intent(getContext(),BirthdayShowViewActivity.class));
+                       finishUI();
                    }
                });
                 break;

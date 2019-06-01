@@ -190,5 +190,26 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="act_tool_birthday_show_table_child_ll">
+        <item name="android:background">#fff</item>
+        <item name="android:layout_marginTop">0.1dp</item>
+        <item name="android:layout_marginLeft">0.1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="act_tool_birthday_show_table_child_value">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="act_tool_birthday_show_table_child_key">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 
 </resources>

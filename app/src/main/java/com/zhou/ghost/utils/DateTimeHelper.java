@@ -1,6 +1,7 @@
 package com.zhou.ghost.utils;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -88,6 +89,38 @@ public class DateTimeHelper {
         long ltime = Long.valueOf(time);
         strTime = mFormat.format(new Date(ltime * 1000L));
         return strTime;
+    }
+
+    /**
+     * 将字符串转换为时间戳
+     */
+    public static long getStringToLongDate(String date) {
+        Date d = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            d = format.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return d.getTime();
+    }
+
+    /**
+     * 显示特定日期到当前日期具体几年，精确到小数点后 8位
+     */
+    public static String getNumberYears(String date) {
+        String strDate ="";
+        double parseDateTime = getStringToLongDate(date);
+        DecimalFormat decimalFormat = new DecimalFormat("00.00000000");
+
+        double parseDateTime1 = new Date().getTime();
+        double l = parseDateTime1 - parseDateTime;
+        double i = 1000.0 * 60.0 * 60.0 * 24.0 * 365.0;
+        double l1 = l / i;
+        String format = decimalFormat.format(l1);
+        strDate = format;
+
+        return strDate;
     }
 
     /**

@@ -93,4 +93,7 @@ dependencies {
 
     //日期选择器
 //    implementation 'com.wdullaer:materialdatetimepicker:4.2.0'
+
+    //TextView变更动画
+    implementation 'com.robinhood.ticker:ticker:2.0.1'
 }

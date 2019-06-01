@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="230dp"
+            android:layout_height="205dp"
+            android:src="@drawable/birthday_clock" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="你已经"
+                android:textColor="#000"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+            <!--<TextView-->
+            <!--android:id="@+id/act_tool_birthday_show_date_number_tv"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="#000"-->
+            <!--android:text=" 00.00000000 "-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="22sp"-->
+            <!--/>-->
+            <com.robinhood.ticker.TickerView
+                android:id="@+id/act_tool_birthday_show_date_number_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 00.00000000 "
+                android:textColor="#000"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="岁了"
+                android:textColor="#000"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="在这个世界上，你已经存在"
+                android:textColor="#CB525151"
+                android:textSize="13sp" />
+
+            <!--&lt;!&ndash;第一行&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="1">-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--&lt;!&ndash;第二行&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="1">-->
+
+
+            <!--</LinearLayout>-->
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout style="@style/act_tool_birthday_show_table_child_ll">
+
+                        <TextView
+
+                            style="@style/act_tool_birthday_show_table_child_value" />
+
+                        <TextView style="@style/act_tool_birthday_show_table_child_key"
+                            android:text="年"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/act_tool_birthday_show_table_child_ll">
+
+                        <TextView
+
+                            style="@style/act_tool_birthday_show_table_child_value" />
+
+                        <TextView style="@style/act_tool_birthday_show_table_child_key"
+                            android:text="月"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/act_tool_birthday_show_table_child_ll"
+                        android:layout_marginRight="0.1dp">
+
+                        <TextView
+
+                            style="@style/act_tool_birthday_show_table_child_value" />
+
+                        <TextView style="@style/act_tool_birthday_show_table_child_key"
+                            android:text="周"/>
+
+                    </LinearLayout>
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout style="@style/act_tool_birthday_show_table_child_ll"
+                        android:layout_marginBottom="0.1dp">
+
+                        <TextView
+
+                            style="@style/act_tool_birthday_show_table_child_value" />
+
+                        <TextView style="@style/act_tool_birthday_show_table_child_key"
+                            android:text="天"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/act_tool_birthday_show_table_child_ll"
+                        android:layout_marginBottom="0.1dp">
+
+                        <TextView
+
+                            style="@style/act_tool_birthday_show_table_child_value" />
+
+                        <TextView style="@style/act_tool_birthday_show_table_child_key"
+                            android:text="小时"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/act_tool_birthday_show_table_child_ll"
+                        android:layout_marginBottom="0.1dp"
+                        android:layout_marginRight="0.1dp">
+
+                        <TextView
+
+                            style="@style/act_tool_birthday_show_table_child_value" />
+
+                        <TextView style="@style/act_tool_birthday_show_table_child_key"
+                            android:text="分钟"/>
+
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+    <TextView
+        android:id="@+id/act_tool_birthday_show_date_tv"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/birthday_corner"
+        android:gravity="center"
+        android:text="重新选择出生日期"
+        android:textColor="#C98A8A8A"
+        android:textSize="13sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+</LinearLayout>
