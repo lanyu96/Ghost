@@ -96,4 +96,8 @@ dependencies {
 
     //TextView变更动画
     implementation 'com.robinhood.ticker:ticker:2.0.1'
+
+    //时钟
+    implementation 'com.github.LanceShu:ClockView:1.2.1'
+
 }

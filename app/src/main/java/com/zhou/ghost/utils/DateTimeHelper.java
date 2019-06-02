@@ -115,9 +115,126 @@ public class DateTimeHelper {
 
         double parseDateTime1 = new Date().getTime();
         double l = parseDateTime1 - parseDateTime;
-        double i = 1000.0 * 60.0 * 60.0 * 24.0 * 365.0;
+        double i = 1000.0 * 60.0 * 60.0 * 24.0 * 365.25;
         double l1 = l / i;
         String format = decimalFormat.format(l1);
+        strDate = format;
+
+        return strDate;
+    }
+    /**
+     * 显示特定日期到当前日期具体几年
+     */
+    public static String getNumberYear(String date) {
+        String strDate ="";
+        double parseDateTime = getStringToLongDate(date);
+        DecimalFormat decimalFormat = new DecimalFormat("00");
+
+        double parseDateTime1 = new Date().getTime();
+        double l = parseDateTime1 - parseDateTime;
+        double i = 1000.0 * 60.0 * 60.0 * 24.0 * 365.25;
+        double l1 = l / i;
+        int l2 = (int)l1;
+        String format = decimalFormat.format(l2);
+//        if ((l1 - 0.5) >= Integer.valueOf(format)) {
+////            format = String.valueOf(Integer.valueOf(format) - 1);
+////        }
+
+        strDate = format;
+
+        return strDate;
+    }
+
+    /**
+     * 显示特定日期到当前日期具体几个月
+     */
+    public static String getNumberMonth(String date) {
+        String strDate ="";
+        double parseDateTime = getStringToLongDate(date);
+        DecimalFormat decimalFormat = new DecimalFormat("00");
+
+        double parseDateTime1 = new Date().getTime();
+        double l = parseDateTime1 - parseDateTime;
+        double i = 1000.0 * 60.0 * 60.0 * 24.0 * 30.4375;
+        double l1 = l / i;
+        int l2 = (int)l1;
+        String format = decimalFormat.format(l2);
+        strDate = format;
+
+        return strDate;
+    }
+
+    /**
+     * 显示特定日期到当前日期具体几个周
+     */
+    public static String getNumberWeek(String date) {
+        String strDate ="";
+        double parseDateTime = getStringToLongDate(date);
+        DecimalFormat decimalFormat = new DecimalFormat("00");
+
+        double parseDateTime1 = new Date().getTime();
+        double l = parseDateTime1 - parseDateTime;
+        double i = 1000.0 * 60.0 * 60.0 * 24.0 * 7;
+        double l1 = l / i;
+        int l2 = (int)l1;
+        String format = decimalFormat.format(l2);
+        strDate = format;
+
+        return strDate;
+    }
+
+    /**
+     * 显示特定日期到当前日期具体天
+     */
+    public static String getNumberDay(String date) {
+        String strDate ="";
+        double parseDateTime = getStringToLongDate(date);
+        DecimalFormat decimalFormat = new DecimalFormat("00");
+
+        double parseDateTime1 = new Date().getTime();
+        double l = parseDateTime1 - parseDateTime;
+        double i = 1000.0 * 60.0 * 60.0 * 24.0;
+        double l1 = l / i;
+        int l2 = (int)l1;
+        String format = decimalFormat.format(l2);
+        strDate = format;
+
+        return strDate;
+    }
+
+    /**
+     * 显示特定日期到当前日期具体小时
+     */
+    public static String getNumberHour(String date) {
+        String strDate ="";
+        double parseDateTime = getStringToLongDate(date);
+        DecimalFormat decimalFormat = new DecimalFormat("00");
+
+        double parseDateTime1 = new Date().getTime();
+        double l = parseDateTime1 - parseDateTime;
+        double i = 1000.0 * 60.0 * 60.0;
+        double l1 = l / i;
+        int l2 = (int)l1;
+        String format = decimalFormat.format(l2);
+        strDate = format;
+
+        return strDate;
+    }
+
+    /**
+     * 显示特定日期到当前日期具体分钟
+     */
+    public static String getNumberMin(String date) {
+        String strDate ="";
+        double parseDateTime = getStringToLongDate(date);
+        DecimalFormat decimalFormat = new DecimalFormat("00");
+
+        double parseDateTime1 = new Date().getTime();
+        double l = parseDateTime1 - parseDateTime;
+        double i = 1000.0 * 60.0;
+        double l1 = l / i;
+        int l2 = (int)l1;
+        String format = decimalFormat.format(l2);
         strDate = format;
 
         return strDate;

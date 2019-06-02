@@ -6,6 +6,7 @@ import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.lance.clockview.ClockView;
 import com.robinhood.ticker.TickerUtils;
 import com.robinhood.ticker.TickerView;
 import com.zhou.ghost.MyApp;
@@ -15,6 +16,8 @@ import com.zhou.ghost.ui.presenter.tool.BirthdayPresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseActivity;
 import com.zhou.ghost.utils.DateTimeHelper;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,11 +32,30 @@ public class BirthdayShowViewActivity extends BaseActivity<BirthdayPresenterImpl
             switch (msg.what) {
                 case 0:
                     dateNumberTv.setText(" "+DateTimeHelper.getNumberYears(MyApp.getPreferencesService().getValue(SPConstants.BIRTHDAY_DATE, ""))+" ");
+
+                    yearTv.setText(DateTimeHelper.getNumberYear(MyApp.getPreferencesService().getValue(SPConstants.BIRTHDAY_DATE, "")));
+
+                    monthTv.setText(DateTimeHelper.getNumberMonth(MyApp.getPreferencesService().getValue(SPConstants.BIRTHDAY_DATE, "")));
+
+                    weekTv.setText(DateTimeHelper.getNumberWeek(MyApp.getPreferencesService().getValue(SPConstants.BIRTHDAY_DATE, "")));
+
+                    dayTv.setText(DateTimeHelper.getNumberDay(MyApp.getPreferencesService().getValue(SPConstants.BIRTHDAY_DATE, "")));
+
+                    hourTv.setText(DateTimeHelper.getNumberHour(MyApp.getPreferencesService().getValue(SPConstants.BIRTHDAY_DATE, "")));
+
+                    minTv.setText(DateTimeHelper.getNumberMin(MyApp.getPreferencesService().getValue(SPConstants.BIRTHDAY_DATE, "")));
                     break;
             }
             return false;
         }
     });
+    private TextView yearTv;
+    private TextView monthTv;
+    private TextView weekTv;
+    private TextView dayTv;
+    private TextView hourTv;
+    private TextView minTv;
+    private ClockView clockView;
     //    private TextView dateNumberTv;
 
     @Override
@@ -47,7 +69,15 @@ public class BirthdayShowViewActivity extends BaseActivity<BirthdayPresenterImpl
 //        dateNumberTv = findViewById(R.id.act_tool_birthday_show_date_number_tv);
         dateNumberTv = findViewById(R.id.act_tool_birthday_show_date_number_tv);
         clearTv = findViewById(R.id.act_tool_birthday_show_date_tv);
+        yearTv = findViewById(R.id.act_tool_birthday_show_date_year_tv);
+        monthTv = findViewById(R.id.act_tool_birthday_show_date_mouth_tv);
+        weekTv = findViewById(R.id.act_tool_birthday_show_date_week_tv);
+        dayTv = findViewById(R.id.act_tool_birthday_show_date_day_tv);
+        hourTv = findViewById(R.id.act_tool_birthday_show_date_hour_tv);
+        minTv = findViewById(R.id.act_tool_birthday_show_date_min_tv);
 
+        //时钟
+        clockView = findViewById(R.id.act_tool_birthday_show_clockView);
 
         dateNumberTv.setCharacterLists(TickerUtils.provideNumberList());
     }
@@ -55,6 +85,10 @@ public class BirthdayShowViewActivity extends BaseActivity<BirthdayPresenterImpl
     @Override
     public void initEvent() {
         clearTv.setOnClickListener(this);
+        Calendar calendar = Calendar.getInstance();
+
+        clockView.setTime(calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),calendar.get(Calendar.SECOND));
+        clockView.start();
     }
 
     @Override

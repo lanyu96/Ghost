@@ -12,10 +12,11 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="230dp"
-            android:layout_height="205dp"
-            android:src="@drawable/birthday_clock" />
+        <com.example.lance.clockview.ClockView
+            android:id="@+id/act_tool_birthday_show_clockView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true" />
 
     </LinearLayout>
 
@@ -70,9 +71,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="15dp"
+            android:paddingLeft="25dp"
             android:paddingTop="15dp"
-            android:paddingRight="15dp">
+            android:paddingRight="25dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -116,7 +117,7 @@
                     <LinearLayout style="@style/act_tool_birthday_show_table_child_ll">
 
                         <TextView
-
+                            android:id="@+id/act_tool_birthday_show_date_year_tv"
                             style="@style/act_tool_birthday_show_table_child_value" />
 
                         <TextView style="@style/act_tool_birthday_show_table_child_key"
@@ -127,7 +128,7 @@
                     <LinearLayout style="@style/act_tool_birthday_show_table_child_ll">
 
                         <TextView
-
+                            android:id="@+id/act_tool_birthday_show_date_mouth_tv"
                             style="@style/act_tool_birthday_show_table_child_value" />
 
                         <TextView style="@style/act_tool_birthday_show_table_child_key"
@@ -139,7 +140,7 @@
                         android:layout_marginRight="0.1dp">
 
                         <TextView
-
+                            android:id="@+id/act_tool_birthday_show_date_week_tv"
                             style="@style/act_tool_birthday_show_table_child_value" />
 
                         <TextView style="@style/act_tool_birthday_show_table_child_key"
@@ -159,7 +160,7 @@
                         android:layout_marginBottom="0.1dp">
 
                         <TextView
-
+                            android:id="@+id/act_tool_birthday_show_date_day_tv"
                             style="@style/act_tool_birthday_show_table_child_value" />
 
                         <TextView style="@style/act_tool_birthday_show_table_child_key"
@@ -171,7 +172,7 @@
                         android:layout_marginBottom="0.1dp">
 
                         <TextView
-
+                            android:id="@+id/act_tool_birthday_show_date_hour_tv"
                             style="@style/act_tool_birthday_show_table_child_value" />
 
                         <TextView style="@style/act_tool_birthday_show_table_child_key"
@@ -184,7 +185,7 @@
                         android:layout_marginRight="0.1dp">
 
                         <TextView
-
+                            android:id="@+id/act_tool_birthday_show_date_min_tv"
                             style="@style/act_tool_birthday_show_table_child_value" />
 
                         <TextView style="@style/act_tool_birthday_show_table_child_key"
