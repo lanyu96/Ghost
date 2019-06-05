@@ -73,8 +73,9 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_view);
-        checkUpdate();
+
         init();
+        checkUpdate();
         jumpLogin();
 
         if (TextUtils.isEmpty(MyApp.getPreferencesService().getValue(SPConstants.IS_FIRST, ""))) {
@@ -131,7 +132,7 @@ public class SplashActivity extends AppCompatActivity {
                     count--;
                     //失败次数计数
                     failCount++;
-                } else if (count == 5) {
+                } else if (count == 4) {
                     Intent intent = new Intent(SplashActivity.this, MainViewActivity.class);
                     startActivity(intent);
                     finish();
@@ -189,55 +190,57 @@ public class SplashActivity extends AppCompatActivity {
 
 //        JsonObject jsonObject = new JsonObject(jsonData);
 //        showProgress(MyApp.getRes().getString(R.string.loading));
-//        HttpRequest.getAppData(new CallBackListener<AppInfo>() {
-//            @Override
-//            public void onSuccess(AppInfo appInfo) {
-////                hideProgress();
+        HttpRequest.getAppData(new CallBackListener<AppInfo>() {
+            @Override
+            public void onSuccess(AppInfo appInfo) {
+//                hideProgress();
+                //有BUG，在Activity没关闭的情况下，显示正在关闭状态
 //                if (SplashActivity.this.isFinishing()) {
 //                    return;
 //                }
-//                //检查更新
-//                String nowVersion = MyApp.getVersion();
-//                //服务器端版本号
-//                String newVersion = appInfo.getResult().get(0).getFversion();
-//
-//                //test
-////                String newVersion = "1.0.4";
-//
-//                Log.i("TEST11", newVersion);
-//                //新版本App的下载地址
-//                String downloadUrl = appInfo.getResult().get(0).getFaddress();
-//                //版本更新提醒的标题
-//                String title = getString(R.string.updateTitle);
-//                //版本更新提醒的详细信息
-//                String updateContent = appInfo.getResult().get(0).getFcontext().replace("##", "\n");
-//                Log.i("TEST111", "当前版本" + nowVersion);
-//                //如果当前版本与远程最新版本不符,则调用App更新下载的方法
-//                if (!nowVersion.equals(newVersion)) {
-//                    isGetUpdateComplete = true;
-//                    Intent intent = new Intent(SplashActivity.this, LoginViewActivity.class);
+                //检查更新
+                String nowVersion = MyApp.getVersion();
+                //服务器端版本号
+                String newVersion = appInfo.getVersion();
+
+                //test
+//                String newVersion = "1.0.4";
+
+                Log.i("TEST11", newVersion);
+                //新版本App的下载地址
+                String downloadUrl = appInfo.getAddress();
+                //版本更新提醒的标题
+                String title = "发现新版本";
+                //版本更新提醒的详细信息
+                String updateContent = appInfo.getContext().replace("##", "\n");
+                Log.i("TEST111", "当前版本" + nowVersion);
+                //如果当前版本与远程最新版本不符,则调用App更新下载的方法
+                if (!nowVersion.equals(newVersion)) {
+                    isGetUpdateComplete = true;
+//                    Intent intent = new Intent(SplashActivity.this, MainViewActivity.class);
 //                    startActivity(intent);
 //                    finish();
-//                    AppUpdate.sendRequest(SplashActivity.this, title, updateContent, downloadUrl);
-//
-//
-//                }
-//
-//
-//            }
-//
-//
-//            @Override
-//            public void onError(String error) {
-////                hideProgress();
-//                if (SplashActivity.this.isFinishing()) {
-//                    return;
-//                }
-//                isGetUpdateComplete = true;
-//                getUpdateFail();
-//
-//            }
-//        });
+                    timer.cancel();
+                    AppUpdate.sendRequest(SplashActivity.this, title, updateContent, downloadUrl);
+
+
+                }
+
+
+            }
+
+
+            @Override
+            public void onError(String error) {
+//                hideProgress();
+                if (SplashActivity.this.isFinishing()) {
+                    return;
+                }
+                isGetUpdateComplete = true;
+                getUpdateFail();
+
+            }
+        });
 
     }
     /**
@@ -256,10 +259,10 @@ public class SplashActivity extends AppCompatActivity {
                 //检查更新
                 String nowVersion = MyApp.getVersion();
                 //服务器端版本号
-//                String newVersion = appInfo.getResult().get(0).getFversion();
+                String newVersion = appInfo.getVersion();
 
                 //test
-                String newVersion = "1.2.0";
+//                String newVersion = "1.2.0";
                 if (nowVersion.equals(newVersion)) {
                     hideProgress();
                     Toast.makeText(context, "已是最新版本", Toast.LENGTH_SHORT).show();

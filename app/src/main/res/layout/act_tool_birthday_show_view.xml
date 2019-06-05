@@ -13,12 +13,18 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <com.example.lance.clockview.ClockView
-            android:id="@+id/act_tool_birthday_show_clockView"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+        <!--<com.example.lance.clockview.ClockView-->
+            <!--android:id="@+id/act_tool_birthday_show_clockView"-->
+            <!--android:layout_width="300dp"-->
+            <!--android:layout_height="300dp"-->
 
-            android:layout_centerInParent="true" />
+            <!--android:layout_centerInParent="true" />-->
+
+        <com.zhou.ghost.utils.lanyu.AlarmClockView
+            android:id="@+id/act_tool_birthday_show_alarm_clock"
+            android:layout_width="300dp"
+            app:proportion="0.6"
+            android:layout_height="300dp"/>
 
     </LinearLayout>
 

@@ -114,15 +114,15 @@ public class HttpRequest {
     public static void getAppData(final CallBackListener<AppInfo> listener) {
 
 
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/text"), "newString=1");
-        RetrofitManager.getAppService().getAppInfo("1", "anyou").enqueue(new Callback<AppInfo>() {
+//        RequestBody requestBody = RequestBody.create(MediaType.parse("application/text"), "newString=1");
+        RetrofitManager.getAppService().getAppInfo(1).enqueue(new Callback<AppInfo>() {
             @Override
             public void onResponse(Call<AppInfo> call, Response<AppInfo> response) {
 
-                if ("0000".equals(response.body().getCode())) {
+                if (!"".equals(response.body().getId())) {
                     listener.onSuccess(response.body());
                 } else {
-                    listener.onError(response.body().getMessage());
+                    listener.onError("");
                 }
             }
 

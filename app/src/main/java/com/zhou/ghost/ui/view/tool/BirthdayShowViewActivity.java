@@ -15,6 +15,7 @@ import com.zhou.ghost.constant.SPConstants;
 import com.zhou.ghost.ui.presenter.tool.BirthdayPresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseActivity;
 import com.zhou.ghost.utils.DateTimeHelper;
+import com.zhou.ghost.utils.lanyu.AlarmClockView;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -56,6 +57,7 @@ public class BirthdayShowViewActivity extends BaseActivity<BirthdayPresenterImpl
     private TextView hourTv;
     private TextView minTv;
     private ClockView clockView;
+    private AlarmClockView alarmClockView;
     //    private TextView dateNumberTv;
 
     @Override
@@ -77,8 +79,8 @@ public class BirthdayShowViewActivity extends BaseActivity<BirthdayPresenterImpl
         minTv = findViewById(R.id.act_tool_birthday_show_date_min_tv);
 
         //时钟
-        clockView = findViewById(R.id.act_tool_birthday_show_clockView);
-
+//        clockView = findViewById(R.id.act_tool_birthday_show_clockView);
+        alarmClockView = findViewById(R.id.act_tool_birthday_show_alarm_clock);
         dateNumberTv.setCharacterLists(TickerUtils.provideNumberList());
     }
 
@@ -87,8 +89,9 @@ public class BirthdayShowViewActivity extends BaseActivity<BirthdayPresenterImpl
         clearTv.setOnClickListener(this);
         Calendar calendar = Calendar.getInstance();
 
-        clockView.setTime(calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),calendar.get(Calendar.SECOND));
-        clockView.start();
+        alarmClockView.start();
+//        clockView.setTime(calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),calendar.get(Calendar.SECOND));
+//        clockView.start();
     }
 
     @Override

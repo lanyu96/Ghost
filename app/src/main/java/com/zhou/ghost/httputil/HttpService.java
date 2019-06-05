@@ -76,13 +76,15 @@ public interface HttpService {
     Call<ResponseBody> getFile(@Body RequestBody info);
 
     @FormUrlEncoded
-    @POST("getAppRecord.json")
-    Call<AppInfo> getAppInfo(@Field("newString") String info, @Field("appName") String appName);
+    @POST("app_update_zhou.json")
+    Call<AppInfo> getAppInfo(@Field("isAble") int isAble);
 
 //    @GET("weather/{weather-type}?{parameters}")
 //    Call<ResponseBody> getWeatherInfo(@Query("weather-type") String weatherType, @Query("parameters") String parameters);
     @GET("weather/now?location=beijing&key=e01c51cd6f67440a93cc2b764a93d122")
     Call<WeatherBean> getWeatherInfo();
+
+
 
 
 //    @POST("appinterface/changePassword.json")

@@ -1,7 +1,6 @@
 package com.zhou.ghost.ui.bean;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @Auther: zhou
@@ -9,133 +8,79 @@ import java.util.List;
  * @Description:
  */
 public class AppInfo implements Serializable {
+
+
     /**
-     * result : [{"id":2,"faddress":"http://qdwlhl.com/emt/static/pigapp/anyou.apk","fversion":"1.0.1","fcontext":"1","fisable":1,"fcreatetime":"2019-01-07 08:08:08","appname":"anyou"},{"id":1,"faddress":"http://qdwlhl.com/emt/static/pigapp/anyou.apk","fversion":"1.0.0","fcontext":"21","fisable":12,"fcreatetime":"2019-01-05 15:22:42","appname":"anyou"}]
-     * success : true
-     * message :
-     * code : 0000
-     * token :
+     * id : 110
+     * address : http://47.110.9.80/lanyu/taiji/
+     * version : 1.2.2
+     * context : 1111
+     * isAble : 1
+     * createTime : 2019-06-03 21:28:52.0
+     * appName : taiji.apk
      */
 
-    private boolean success;
-    private String message;
-    private String code;
-    private String token;
-    /**
-     * id : 2
-     * faddress : http://qdwlhl.com/emt/static/pigapp/anyou.apk
-     * fversion : 1.0.1
-     * fcontext : 1
-     * fisable : 1
-     * fcreatetime : 2019-01-07 08:08:08
-     * appname : anyou
-     */
+    private int id;
+    private String address;
+    private String version;
+    private String context;
+    private String isAble;
+    private String createTime;
+    private String appName;
 
-    private List<ResultBean> result;
-
-    public void setSuccess(boolean success) {
-        this.success = success;
+    public int getId() {
+        return id;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public String getAddress() {
+        return address;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public void setResult(List<ResultBean> result) {
-        this.result = result;
+    public String getVersion() {
+        return version;
     }
 
-    public boolean isSuccess() {
-        return success;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContext() {
+        return context;
     }
 
-    public String getCode() {
-        return code;
+    public void setContext(String context) {
+        this.context = context;
     }
 
-    public String getToken() {
-        return token;
+    public String getIsAble() {
+        return isAble;
     }
 
-    public List<ResultBean> getResult() {
-        return result;
+    public void setIsAble(String isAble) {
+        this.isAble = isAble;
     }
 
-    public static class ResultBean {
-        private int id;
-        private String faddress;
-        private String fversion;
-        private String fcontext;
-        private int fisable;
-        private String fcreatetime;
-        private String appname;
+    public String getCreateTime() {
+        return createTime;
+    }
 
-        public void setId(int id) {
-            this.id = id;
-        }
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
-        public void setFaddress(String faddress) {
-            this.faddress = faddress;
-        }
+    public String getAppName() {
+        return appName;
+    }
 
-        public void setFversion(String fversion) {
-            this.fversion = fversion;
-        }
-
-        public void setFcontext(String fcontext) {
-            this.fcontext = fcontext;
-        }
-
-        public void setFisable(int fisable) {
-            this.fisable = fisable;
-        }
-
-        public void setFcreatetime(String fcreatetime) {
-            this.fcreatetime = fcreatetime;
-        }
-
-        public void setAppname(String appname) {
-            this.appname = appname;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public String getFaddress() {
-            return faddress;
-        }
-
-        public String getFversion() {
-            return fversion;
-        }
-
-        public String getFcontext() {
-            return fcontext;
-        }
-
-        public int getFisable() {
-            return fisable;
-        }
-
-        public String getFcreatetime() {
-            return fcreatetime;
-        }
-
-        public String getAppname() {
-            return appname;
-        }
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 }
