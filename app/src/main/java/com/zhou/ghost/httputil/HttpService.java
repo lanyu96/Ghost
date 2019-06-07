@@ -81,7 +81,7 @@ public interface HttpService {
 
 //    @GET("weather/{weather-type}?{parameters}")
 //    Call<ResponseBody> getWeatherInfo(@Query("weather-type") String weatherType, @Query("parameters") String parameters);
-    @GET("weather/now?location=beijing&key=e01c51cd6f67440a93cc2b764a93d122")
+    @GET("weather/now?location=jiaozhou&key=e01c51cd6f67440a93cc2b764a93d122")
     Call<WeatherBean> getWeatherInfo();
 
 

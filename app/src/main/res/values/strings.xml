@@ -5,6 +5,8 @@
     <string name="try_again_quit">再按一次退出应用</string>
 
     <string name="login_space">登&#160;&#160;录</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
 
 </resources>
