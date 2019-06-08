@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 public class DateTimeHelper {
@@ -28,6 +29,53 @@ public class DateTimeHelper {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
        return df.format(date);
     }
+
+    /**
+     * 获取现在农历的日期
+     */
+    public static String getDayLunar() {
+        LunarCalender lunarCalender = new LunarCalender();
+        String lunarDate = "00";
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH)+1;
+        int day = calendar.get(Calendar.DATE);
+//        lunarDate = lunarCalender.getLunarDate(year, month, day, true);
+//        String lunarMonth = lunarCalender.getLunarMonth();
+
+        String lunarAnimal = lunarCalender.animalsYear(year);
+        String lunarString = lunarCalender.getLunarString(year, month, day);
+        if (lunarCalender != null) {
+            lunarCalender = null;
+        }
+        if (calendar != null) {
+            calendar = null;
+        }
+
+        return lunarString+" ["+lunarAnimal+"]";
+
+    }
+
+    /**
+     * 显示当前日期和星期
+     */
+    public static String getDayAndWeek(){
+
+        Date date = new Date();
+        DateFormat df = new SimpleDateFormat("yyyy年MM月dd日 EEEE");
+        return df.format(date);
+    }
+
+    /**
+     * 显示当前时分
+     */
+    public static String getHourAndMin(){
+
+        Date date = new Date();
+        DateFormat df = new SimpleDateFormat("HH:mm");
+        return df.format(date);
+    }
+
     /**
      * 将日期以指定格式输出
      * @param date - new Date()

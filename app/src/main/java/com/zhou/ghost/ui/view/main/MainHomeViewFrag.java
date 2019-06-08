@@ -31,6 +31,7 @@ import com.zhou.ghost.ui.callback.CallBackListener;
 import com.zhou.ghost.ui.presenter.main.MainHomePresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseFragment;
 import com.zhou.ghost.ui.view.base.BaseView;
+import com.zhou.ghost.utils.DateTimeHelper;
 import com.zhou.ghost.utils.api.WeatherAPI;
 import com.zhou.ghost.utils.cleancache.CleanCacheUtil;
 import com.zhou.ghost.utils.lanyu.GlideImageLoader;
@@ -67,22 +68,26 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
         initBanner();
         refreshBtn = (Button) findViewById(R.id.fragment_main_home_refresh_btn);
 
-        HttpRequest.getWeatherInfo("jiaozhou", new CallBackListener<WeatherBean.HeWeather6Bean>() {
-            @Override
-            public void onSuccess(WeatherBean.HeWeather6Bean weatherBean) {
-                Log.i("ZHOUT", "tmp  +++++");
-            }
-
-            @Override
-            public void onError(String error) {
-
-            }
-        });
+//        HttpRequest.getWeatherInfo("jiaozhou", new CallBackListener<WeatherBean.HeWeather6Bean>() {
+//            @Override
+//            public void onSuccess(WeatherBean.HeWeather6Bean weatherBean) {
+//                Log.i("ZHOUT", "tmp  +++++");
+//            }
+//
+//            @Override
+//            public void onError(String error) {
+//
+//            }
+//        });
 //        String weatherInfo = new WeatherAPI().getWeatherInfo();
 //        Gson gson = new Gson();
 //        WeatherBean weatherBean = gson.fromJson(weatherInfo, WeatherBean.class);
 ////        String tmp = weatherBean.getNow().getTmp();
 //        Log.i("ZHOUT", "tmp  +++++"+weatherInfo);
+
+        String dayLunar = DateTimeHelper.getDayLunar();
+        Log.i("ZHOUT", dayLunar);
+
     }
 
     private void initBanner() {

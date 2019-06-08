@@ -14,6 +14,8 @@ import com.zhou.ghost.R;
 import com.zhou.ghost.httputil.HttpRequest;
 import com.zhou.ghost.ui.bean.weather.WeatherBean;
 import com.zhou.ghost.ui.callback.CallBackListener;
+import com.zhou.ghost.utils.DateTimeHelper;
+import com.zhou.ghost.utils.LunarCalender;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -57,17 +59,21 @@ public class WidgetUpdateService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-        long time = 5000;
-
+        //时间
         task = new TimerTask() {
             @Override
             public void run() {
                 count++;
-               remoteViews.setTextViewText(R.id.widget_now_temperature, "" + count + " ℃");
+                String dayAndWeek = DateTimeHelper.getDayAndWeek();
+                String hourAndMin = DateTimeHelper.getHourAndMin();
+                remoteViews.setTextViewText(R.id.widget_now_time,dayAndWeek);
+                remoteViews.setTextViewText(R.id.widget_now_time_clock,hourAndMin);
 
 
-                remoteViews.setTextViewText(R.id.widget_now_weather_status, nowWeather);
+
+                String dayString = DateTimeHelper.getDayLunar();
+
+                remoteViews.setTextViewText(R.id.widget_now_time_lunar,dayString);
 
                 Log.i("ZHOUT", "桌面小控件运行+" + count);
 
@@ -75,7 +81,7 @@ public class WidgetUpdateService extends Service {
                 manager.updateAppWidget(componentName, remoteViews);
             }
         };
-        timer.schedule(task, 0, 5000);
+        timer.schedule(task, 0, 60000);
 
         task1 = new TimerTask() {
             @Override
@@ -85,6 +91,11 @@ public class WidgetUpdateService extends Service {
                     @Override
                     public void onSuccess(WeatherBean.HeWeather6Bean heWeather6Bean) {
                         nowWeather = heWeather6Bean.getNow().getTmp();
+
+                        remoteViews.setTextViewText(R.id.widget_now_temperature, "" + nowWeather + "°");
+                        remoteViews.setTextViewText(R.id.widget_now_weather_loc, heWeather6Bean.getBasic().getLocation());
+                        remoteViews.setTextViewText(R.id.widget_now_weather_status,heWeather6Bean.getNow().getCond_txt());
+
                         Log.i("ZHOUT", "天气请求次数+1");            }
 
                     @Override
@@ -92,9 +103,10 @@ public class WidgetUpdateService extends Service {
 
                     }
                 });
+                manager.updateAppWidget(componentName, remoteViews);
             }
         };
-        timer1.schedule(task1,0,10000);
+        timer1.schedule(task1,0,120000);
 
 //        //获取天气详情
 //        HttpRequest.getWeatherInfo("jiaozhou", new CallBackListener<WeatherBean.HeWeather6Bean>() {
