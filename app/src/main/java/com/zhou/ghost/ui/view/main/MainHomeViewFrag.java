@@ -85,9 +85,6 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
 ////        String tmp = weatherBean.getNow().getTmp();
 //        Log.i("ZHOUT", "tmp  +++++"+weatherInfo);
 
-        String dayLunar = DateTimeHelper.getDayLunar();
-        Log.i("ZHOUT", dayLunar);
-
     }
 
     private void initBanner() {

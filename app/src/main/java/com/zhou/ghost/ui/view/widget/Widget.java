@@ -5,9 +5,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.RemoteViews;
-
-import com.zhou.ghost.R;
 
 /**
  * Implementation of App Widget functionality.
@@ -31,6 +28,8 @@ public class Widget extends AppWidgetProvider {
 //        // Instruct the Widget manager to update the Widget
 //        appWidgetManager.updateAppWidget(appWidgetId, views);
 //    }
+
+
 
     /**
      * 当小部件的布局发生改变的时候调用
@@ -60,7 +59,8 @@ public class Widget extends AppWidgetProvider {
 //            updateAppWidget(context, appWidgetManager, appWidgetId);
 
 //        }
-
+//        Intent startService = new Intent(context, WidgetUpdateService.class);
+//        context.startService(startService);
         super.onUpdate(context,appWidgetManager,appWidgetIds);
     }
 
@@ -97,7 +97,10 @@ public class Widget extends AppWidgetProvider {
      */
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
+
         super.onDeleted(context, appWidgetIds);
+        Intent stopService = new Intent(context, WidgetUpdateService.class);
+        context.stopService(stopService);
     }
 
     /**
@@ -120,9 +123,9 @@ public class Widget extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        Intent startService = new Intent(context, WidgetUpdateService.class);
-
-        context.startService(startService);
+//        Intent startService = new Intent(context, WidgetUpdateService.class);
+//
+//        context.startService(startService);
     }
 }
 

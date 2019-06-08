@@ -55,7 +55,8 @@ public class MainPersonViewFrag extends BaseFragment<MainPersonPresenterImpl> im
 
                 //检查更新
             case R.id.fragment_person_get_update_ll:
-                new SplashActivity().downloadApk(getContext());
+//                new SplashActivity().downloadApk(getContext());
+                new SplashActivity().upDate(getContext());
                 break;
 //                //修改密码
 //            case R.id.fragment_person_modify_password_ll:

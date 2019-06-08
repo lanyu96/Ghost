@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_light"
+    android:background="@color/white"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical">
@@ -42,7 +42,9 @@
                 android:background="@color/white"
                 android:orientation="vertical">
 
-                <LinearLayout style="@style/my_ll_row">
+                <LinearLayout style="@style/my_ll_row"
+                    android:visibility="gone"
+                    >
                     <TextView
                         style="@style/my_tv_key"
                         android:text="账        号" />
@@ -57,7 +59,9 @@
 
                 <View style="@style/v_row_devide" />
 
-                <LinearLayout style="@style/my_ll_row">
+                <LinearLayout style="@style/my_ll_row"
+                    android:visibility="gone"
+                    >
                     <TextView
                         style="@style/my_tv_key"
                         android:text="用户实名" />
@@ -76,6 +80,7 @@
 
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/ll_person_select_style_ll"
                     style="@style/my_ll_row">
 
@@ -92,6 +97,7 @@
                 </LinearLayout>
                 <View style="@style/v_row_devide" />
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/fragment_person_modify_password_ll"
                     style="@style/my_ll_row">
 
@@ -129,6 +135,7 @@
 
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_person_logout"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"

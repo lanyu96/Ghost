@@ -14,8 +14,9 @@ import com.zhou.ghost.R;
 import com.zhou.ghost.httputil.HttpRequest;
 import com.zhou.ghost.ui.bean.weather.WeatherBean;
 import com.zhou.ghost.ui.callback.CallBackListener;
+import com.zhou.ghost.utils.DataUtils;
 import com.zhou.ghost.utils.DateTimeHelper;
-import com.zhou.ghost.utils.LunarCalender;
+import com.zhou.ghost.utils.util.DateUtil;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -28,13 +29,17 @@ public class WidgetUpdateService extends Service {
     private TimerTask task;
     private TimerTask task1;
     private int count = 1;
-    String nowWeather = "";
+    private int httpCount = 1;
     long time = 2000;  //每个多久请求一次
     private PendingIntent mPi;
     private ComponentName componentName;
     private RemoteViews remoteViews;
     private AppWidgetManager manager;
     private AlarmManager alarmManager;
+    private String loc = "jiaozhou";
+    private String nowWeather1;
+    private String location1;
+    private String cond_txt1;
 
     public WidgetUpdateService() {
 
@@ -54,11 +59,32 @@ public class WidgetUpdateService extends Service {
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         timer = new Timer();
         timer1 = new Timer();
+        HttpRequest.getWeatherInfo(loc, new CallBackListener<WeatherBean.HeWeather6Bean>() {
+            @Override
+            public void onSuccess(WeatherBean.HeWeather6Bean heWeather6Bean) {
+                nowWeather1 = heWeather6Bean.getNow().getTmp();
+                location1 = heWeather6Bean.getBasic().getLocation();
+                cond_txt1 = heWeather6Bean.getNow().getCond_txt();
+                remoteViews.setTextViewText(R.id.widget_now_temperature, "" + nowWeather1 + "°");
+                remoteViews.setTextViewText(R.id.widget_now_weather_loc, location1);
+                remoteViews.setTextViewText(R.id.widget_now_weather_status, cond_txt1);
+                manager.updateAppWidget(componentName, remoteViews);
+
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
 
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        remoteViews.setTextViewText(R.id.widget_now_temperature, "" + nowWeather1 + "°");
+        remoteViews.setTextViewText(R.id.widget_now_weather_loc, location1);
+        remoteViews.setTextViewText(R.id.widget_now_weather_status, cond_txt1);
         //时间
         task = new TimerTask() {
             @Override
@@ -66,14 +92,12 @@ public class WidgetUpdateService extends Service {
                 count++;
                 String dayAndWeek = DateTimeHelper.getDayAndWeek();
                 String hourAndMin = DateTimeHelper.getHourAndMin();
-                remoteViews.setTextViewText(R.id.widget_now_time,dayAndWeek);
-                remoteViews.setTextViewText(R.id.widget_now_time_clock,hourAndMin);
-
-
+                remoteViews.setTextViewText(R.id.widget_now_time, dayAndWeek);
+                remoteViews.setTextViewText(R.id.widget_now_time_clock, hourAndMin);
 
                 String dayString = DateTimeHelper.getDayLunar();
 
-                remoteViews.setTextViewText(R.id.widget_now_time_lunar,dayString);
+                remoteViews.setTextViewText(R.id.widget_now_time_lunar, dayString);
 
                 Log.i("ZHOUT", "桌面小控件运行+" + count);
 
@@ -81,32 +105,18 @@ public class WidgetUpdateService extends Service {
                 manager.updateAppWidget(componentName, remoteViews);
             }
         };
-        timer.schedule(task, 0, 60000);
+        timer.schedule(task, 0, 5000);
 
         task1 = new TimerTask() {
             @Override
             public void run() {
+                httpCount++;
                 //获取天气详情
-                HttpRequest.getWeatherInfo("jiaozhou", new CallBackListener<WeatherBean.HeWeather6Bean>() {
-                    @Override
-                    public void onSuccess(WeatherBean.HeWeather6Bean heWeather6Bean) {
-                        nowWeather = heWeather6Bean.getNow().getTmp();
-
-                        remoteViews.setTextViewText(R.id.widget_now_temperature, "" + nowWeather + "°");
-                        remoteViews.setTextViewText(R.id.widget_now_weather_loc, heWeather6Bean.getBasic().getLocation());
-                        remoteViews.setTextViewText(R.id.widget_now_weather_status,heWeather6Bean.getNow().getCond_txt());
-
-                        Log.i("ZHOUT", "天气请求次数+1");            }
-
-                    @Override
-                    public void onError(String error) {
-
-                    }
-                });
+                getWeatherInfo(loc);
                 manager.updateAppWidget(componentName, remoteViews);
             }
         };
-        timer1.schedule(task1,0,120000);
+        timer1.schedule(task1, 0, 600000);
 
 //        //获取天气详情
 //        HttpRequest.getWeatherInfo("jiaozhou", new CallBackListener<WeatherBean.HeWeather6Bean>() {
@@ -141,12 +151,39 @@ public class WidgetUpdateService extends Service {
 
     }
 
+    //天气请求
+    private void getWeatherInfo(String loc) {
+        HttpRequest.getWeatherInfo(loc, new CallBackListener<WeatherBean.HeWeather6Bean>() {
+            @Override
+            public void onSuccess(WeatherBean.HeWeather6Bean heWeather6Bean) {
+                String nowWeather = heWeather6Bean.getNow().getTmp();
+                String location = heWeather6Bean.getBasic().getLocation();
+                String cond_txt = heWeather6Bean.getNow().getCond_txt();
+                remoteViews.setTextViewText(R.id.widget_now_temperature, "" + nowWeather + "°");
+                remoteViews.setTextViewText(R.id.widget_now_weather_loc, location);
+                remoteViews.setTextViewText(R.id.widget_now_weather_status, cond_txt);
+
+
+                Log.i("ZHOUT", "天气请求次数+"+httpCount);
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         timer.cancel();
+        timer1.cancel();
         task.cancel();
+        task1.cancel();
         timer = null;
         task = null;
+        timer1 = null;
+        task1 = null;
     }
 }
