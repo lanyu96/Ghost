@@ -20,6 +20,7 @@ import java.util.List;
 import com.zhou.ghost.MyApp;
 import com.zhou.ghost.constant.SPConstants;
 import com.zhou.ghost.ui.bean.AppInfo;
+import com.zhou.ghost.ui.bean.weather.WeatherBean;
 import com.zhou.ghost.ui.callback.CallBackListener;
 import com.zhou.ghost.ui.view.base.BaseView;
 import com.zhou.ghost.utils.DataUtils;
@@ -61,7 +62,6 @@ public class HttpRequest {
     }
 
 
-
     public static void getData(final BaseView context, final boolean tryAgain, final HashMap<String, String> jsonParams, final CallBackListener<JsonObject> listener) {
         checkParams(jsonParams);
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), DataUtils.getJsonString(jsonParams));
@@ -96,8 +96,6 @@ public class HttpRequest {
     }
 
 
-
-
     public static void uploadData(final BaseView context, final boolean tryAgain, final JsonObject object, final String bosType, final CallBackListener<JsonObject> listener) {
         object.addProperty("APP_BIZTYPE_CONSTANT", "PigFarmAll");
         object.addProperty("APP_BIZBOSTYPE_CONSTANT", bosType);
@@ -111,6 +109,36 @@ public class HttpRequest {
         }));
     }
 
+    /**
+     * App 天气接口
+     */
+    public static void getWeatherInfo(final String location, final CallBackListener<WeatherBean.HeWeather6Bean> listener) {
+
+        RetrofitManager.getWeatherInfo().getWeatherInfo(location).enqueue(new Callback<WeatherBean>() {
+            @Override
+            public void onResponse(Call<WeatherBean> call, Response<WeatherBean> response) {
+
+                WeatherBean.HeWeather6Bean heWeather6Bean = response.body().getHeWeather6().get(0);
+                if (heWeather6Bean.getStatus().equals("ok")) {
+                    listener.onSuccess(response.body().getHeWeather6().get(0));
+                } else {
+                    listener.onError("请求成功，但返回失败"+heWeather6Bean.getStatus());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<WeatherBean> call, Throwable t) {
+                    listener.onError(t.toString());
+            }
+        });
+    }
+
+
+    /**
+     * App更新接口
+     * @param listener
+     */
     public static void getAppData(final CallBackListener<AppInfo> listener) {
 
 
@@ -132,6 +160,7 @@ public class HttpRequest {
             }
         });
     }
+
 
     public static void deleteData(final BaseView context, final boolean tryAgain, final String bosType, final List<String> ids, final CallBackListener<JsonObject> listener) {
 

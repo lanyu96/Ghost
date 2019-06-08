@@ -7,11 +7,14 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.text.Html;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -22,13 +25,20 @@ import com.yzq.zxinglibrary.common.Constant;
 import org.greenrobot.eventbus.EventBus;
 
 import com.zhou.ghost.R;
+import com.zhou.ghost.httputil.HttpRequest;
+import com.zhou.ghost.ui.bean.weather.WeatherBean;
+import com.zhou.ghost.ui.callback.CallBackListener;
 import com.zhou.ghost.ui.presenter.main.MainHomePresenterImpl;
 import com.zhou.ghost.ui.view.base.BaseFragment;
+import com.zhou.ghost.ui.view.base.BaseView;
+import com.zhou.ghost.utils.api.WeatherAPI;
 import com.zhou.ghost.utils.cleancache.CleanCacheUtil;
 import com.zhou.ghost.utils.lanyu.GlideImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.ResponseBody;
 
 
 public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implements MainHomeView {
@@ -56,8 +66,23 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
     public void initView() {
         initBanner();
         refreshBtn = (Button) findViewById(R.id.fragment_main_home_refresh_btn);
-//        mPresenter.getWeatherInfo();
 
+        HttpRequest.getWeatherInfo("jiaozhou", new CallBackListener<WeatherBean.HeWeather6Bean>() {
+            @Override
+            public void onSuccess(WeatherBean.HeWeather6Bean weatherBean) {
+                Log.i("ZHOUT", "tmp  +++++");
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
+//        String weatherInfo = new WeatherAPI().getWeatherInfo();
+//        Gson gson = new Gson();
+//        WeatherBean weatherBean = gson.fromJson(weatherInfo, WeatherBean.class);
+////        String tmp = weatherBean.getNow().getTmp();
+//        Log.i("ZHOUT", "tmp  +++++"+weatherInfo);
     }
 
     private void initBanner() {

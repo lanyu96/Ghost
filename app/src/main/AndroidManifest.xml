@@ -27,7 +27,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".ui.view.widget.widget">
+        <receiver android:name=".ui.view.widget.Widget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -74,6 +74,8 @@
         <activity android:name=".ui.view.tool.CreateQRViewActivity" />
         <activity android:name=".ui.view.tool.BirthdayViewActivity" />
         <activity android:name=".ui.view.tool.BirthdayShowViewActivity" />
+
+        <service android:name=".ui.view.widget.WidgetUpdateService" />
     </application>
 
 </manifest>

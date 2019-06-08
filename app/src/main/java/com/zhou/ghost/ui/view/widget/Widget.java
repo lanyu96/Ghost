@@ -7,34 +7,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RemoteViews;
 
-import com.google.gson.Gson;
 import com.zhou.ghost.R;
-import com.zhou.ghost.ui.bean.weather.WeatherBean;
-import com.zhou.ghost.utils.DataUtils;
-import com.zhou.ghost.utils.api.WeatherAPI;
 
 /**
  * Implementation of App Widget functionality.
  */
-public class widget extends AppWidgetProvider {
+public class Widget extends AppWidgetProvider {
 
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
-
-//        WeatherAPI weatherAPI = new WeatherAPI();
-//        String weatherInfo = weatherAPI.getWeatherInfo();
-//        Gson gson = new Gson();
-//        WeatherBean weatherBean = gson.fromJson(weatherInfo, WeatherBean.class);
-
-
-//        CharSequence widgetText = weatherBean.getBasic().getLocation();
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
-        views.setTextViewText(R.id.widget_now_temperature, "29"+" ℃");
-
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
-    }
+//    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+//                                int appWidgetId) {
+//
+////        WeatherAPI weatherAPI = new WeatherAPI();
+////        String weatherInfo = weatherAPI.getWeatherInfo();
+////        Gson gson = new Gson();
+////        WeatherBean weatherBean = gson.fromJson(weatherInfo, WeatherBean.class);
+//
+//
+////        CharSequence widgetText = weatherBean.getBasic().getLocation();
+//        // Construct the RemoteViews object
+////        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
+////        views.setTextViewText(R.id.widget_now_temperature, "29"+" ℃");
+//
+//        // Instruct the Widget manager to update the Widget
+//        appWidgetManager.updateAppWidget(appWidgetId, views);
+//    }
 
     /**
      * 当小部件的布局发生改变的时候调用
@@ -60,13 +56,12 @@ public class widget extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
-        for (int appWidgetId : appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId);
+//        for (int appWidgetId : appWidgetIds) {
+//            updateAppWidget(context, appWidgetManager, appWidgetId);
 
+//        }
 
-
-
-        }
+        super.onUpdate(context,appWidgetManager,appWidgetIds);
     }
 
     /**
@@ -76,7 +71,10 @@ public class widget extends AppWidgetProvider {
      */
     @Override
     public void onEnabled(Context context) {
-        // Enter relevant functionality for when the first widget is created
+        super.onEnabled(context);
+        // Enter relevant functionality for when the first Widget is created
+        Intent startService = new Intent(context, WidgetUpdateService.class);
+        context.startService(startService);
     }
 
 
@@ -86,7 +84,10 @@ public class widget extends AppWidgetProvider {
      */
     @Override
     public void onDisabled(Context context) {
-        // Enter relevant functionality for when the last widget is disabled
+        super.onDisabled(context);
+        // Enter relevant functionality for when the last Widget is disabled
+        Intent stopService = new Intent(context, WidgetUpdateService.class);
+        context.stopService(stopService);
     }
 
     /**
@@ -119,6 +120,9 @@ public class widget extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
+        Intent startService = new Intent(context, WidgetUpdateService.class);
+
+        context.startService(startService);
     }
 }
 

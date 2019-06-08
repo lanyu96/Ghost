@@ -1,6 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:background="#000099CC"
     android:padding="@dimen/widget_margin">
 
@@ -8,8 +9,10 @@
         android:id="@+id/widget_now_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="#000099CC"
         android:contentDescription="@string/appwidget_text"
         android:text="00 ℃"
@@ -17,6 +20,30 @@
         android:textSize="50sp"
         android:textStyle="normal" />
 
+    <LinearLayout
+        android:layout_toRightOf="@id/widget_now_temperature"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/widget_now_weather_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:textColor="@color/white"
+            android:text="test" />
+        <TextView
+            android:id="@+id/widget_now_weather_status1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:text="test" />
+    </LinearLayout>
 
 
-</RelativeLayout>
+
+</LinearLayout>
