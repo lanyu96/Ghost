@@ -1,16 +1,21 @@
 package com.zhou.ghost.ui.view.widget;
 
+import android.app.ActivityManager;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+
+import static android.content.Context.ACTIVITY_SERVICE;
 
 /**
  * Implementation of App Widget functionality.
  */
 public class Widget extends AppWidgetProvider {
-
+//    private ScreenBroadcastReceiver screenBroadcastReceiver;
+//    private final static String TAG = "ZHOUTWID";
 //    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
 //                                int appWidgetId) {
 //
@@ -30,6 +35,24 @@ public class Widget extends AppWidgetProvider {
 //    }
 
 
+    /**
+     * 判断服务是否在运行
+     * @param context
+     * @param serviceName
+     * @return
+     * 服务名称为全路径 例如com.ghost.WidgetUpdateService
+     */
+    public boolean isRunService(Context context,String serviceName) {
+        ActivityManager manager = (ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceName.equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     /**
      * 当小部件的布局发生改变的时候调用
@@ -41,6 +64,7 @@ public class Widget extends AppWidgetProvider {
     @Override
     public void onAppWidgetOptionsChanged(Context context, AppWidgetManager appWidgetManager, int appWidgetId, Bundle newOptions) {
         super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions);
+//        Log.i(TAG, "onAppWidgetOptionsChanged");
     }
 
 
@@ -54,13 +78,23 @@ public class Widget extends AppWidgetProvider {
      */
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // There may be multiple widgets active, so update all of them
-//        for (int appWidgetId : appWidgetIds) {
-//            updateAppWidget(context, appWidgetManager, appWidgetId);
 
+//        boolean runService = isRunService(context, "com.zhou.ghost.ui.view.widget.WidgetUpdateService");
+//        if (!runService) {
+//            Intent startService = new Intent(context, WidgetUpdateService.class);
+//            context.startService(startService);
 //        }
-//        Intent startService = new Intent(context, WidgetUpdateService.class);
-//        context.startService(startService);
+//        Log.i(TAG, "onUpdate");
+        if (!isRunService(context, "com.zhou.ghost.ui.view.widget.WidgetUpdateService")) {
+            Intent startService = new Intent(context, WidgetUpdateService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context.startForegroundService(startService);
+            } else {
+                context.startService(startService);
+            }
+
+
+        }
         super.onUpdate(context,appWidgetManager,appWidgetIds);
     }
 
@@ -71,10 +105,26 @@ public class Widget extends AppWidgetProvider {
      */
     @Override
     public void onEnabled(Context context) {
-        super.onEnabled(context);
+
+
+//        Log.i(TAG, "onEnabled");
+//        if (screenBroadcastReceiver == null) {
+//            screenBroadcastReceiver = new ScreenBroadcastReceiver();
+//            screenBroadcastReceiver.registerScreenBroadcastReceiver(context);
+//        }
         // Enter relevant functionality for when the first Widget is created
-        Intent startService = new Intent(context, WidgetUpdateService.class);
-        context.startService(startService);
+        if (!isRunService(context, "com.zhou.ghost.ui.view.widget.WidgetUpdateService")) {
+            Intent startService = new Intent(context, WidgetUpdateService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context.startForegroundService(startService);
+            } else {
+                context.startService(startService);
+            }
+        }
+        super.onEnabled(context);
+
+
+
     }
 
 
@@ -84,10 +134,19 @@ public class Widget extends AppWidgetProvider {
      */
     @Override
     public void onDisabled(Context context) {
-        super.onDisabled(context);
+
         // Enter relevant functionality for when the last Widget is disabled
-        Intent stopService = new Intent(context, WidgetUpdateService.class);
-        context.stopService(stopService);
+//        if (screenBroadcastReceiver != null) {
+//            screenBroadcastReceiver.unRegisterScreenBroadcastReceiver(context);
+//        }
+
+        if (isRunService(context, "com.zhou.ghost.ui.view.widget.WidgetUpdateService")) {
+            Intent stopService = new Intent(context, WidgetUpdateService.class);
+            context.stopService(stopService);
+        }
+//        Log.i(TAG, "onDisabled");
+        super.onDisabled(context);
+
     }
 
     /**
@@ -99,8 +158,18 @@ public class Widget extends AppWidgetProvider {
     public void onDeleted(Context context, int[] appWidgetIds) {
 
         super.onDeleted(context, appWidgetIds);
-        Intent stopService = new Intent(context, WidgetUpdateService.class);
-        context.stopService(stopService);
+
+//        if (screenBroadcastReceiver != null) {
+//            screenBroadcastReceiver.unRegisterScreenBroadcastReceiver(context);
+//        }
+
+        boolean runService = isRunService(context, "com.zhou.ghost.ui.view.widget.WidgetUpdateService");
+
+        if (runService) {
+            Intent stopService = new Intent(context, WidgetUpdateService.class);
+            context.stopService(stopService);
+        }
+//        Log.i(TAG, "onDeleted");
     }
 
     /**
@@ -113,6 +182,14 @@ public class Widget extends AppWidgetProvider {
     @Override
     public void onRestored(Context context, int[] oldWidgetIds, int[] newWidgetIds) {
         super.onRestored(context, oldWidgetIds, newWidgetIds);
+//        boolean runService = isRunService(context, "com.zhou.ghost.ui.view.widget.WidgetUpdateService");
+//
+//        if (!runService) {
+//            Intent startService = new Intent(context, WidgetUpdateService.class);
+//            context.startService(startService);
+//        }
+//        Log.i(TAG, "onRestored");
+
     }
 
     /**
@@ -123,9 +200,15 @@ public class Widget extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-//        Intent startService = new Intent(context, WidgetUpdateService.class);
-//
-//        context.startService(startService);
+
+//        boolean runService = isRunService(context, "com.zhou.ghost.ui.view.widget.WidgetUpdateService");
+//        if (!runService) {
+//            Intent startService = new Intent(context, WidgetUpdateService.class);
+//            context.startService(startService);
+//        }
+//        Log.i(TAG, "onReceive");
     }
+
+
 }
 

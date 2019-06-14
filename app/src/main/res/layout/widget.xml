@@ -4,14 +4,14 @@
     android:background="#000099CC"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="@dimen/widget_margin">
+    >
 
 
     <!--小插件最上方一行-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         >
 
@@ -25,7 +25,7 @@
             android:background="#000099CC"
             android:text="00°"
             android:textColor="#ffffff"
-            android:textSize="50sp"
+            android:textSize="40sp"
             android:textStyle="normal" />
 
         <LinearLayout
@@ -63,7 +63,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:textColor="@color/white"
-            android:textSize="50dp"
+            android:textSize="40sp"
             android:text="00:00"
 
             />

@@ -147,11 +147,14 @@ public class HttpRequest {
             @Override
             public void onResponse(Call<AppInfo> call, Response<AppInfo> response) {
 
-                if (!"".equals(response.body().getId())) {
-                    listener.onSuccess(response.body());
-                } else {
-                    listener.onError("");
-                }
+
+                    if (response.body() !=null) {
+                        listener.onSuccess(response.body());
+                    } else {
+                        listener.onError("");
+                    }
+
+
             }
 
             @Override

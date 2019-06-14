@@ -1,12 +1,18 @@
 package com.zhou.ghost.ui.view.widget;
 
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.IBinder;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -14,9 +20,7 @@ import com.zhou.ghost.R;
 import com.zhou.ghost.httputil.HttpRequest;
 import com.zhou.ghost.ui.bean.weather.WeatherBean;
 import com.zhou.ghost.ui.callback.CallBackListener;
-import com.zhou.ghost.utils.DataUtils;
 import com.zhou.ghost.utils.DateTimeHelper;
-import com.zhou.ghost.utils.util.DateUtil;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -50,6 +54,24 @@ public class WidgetUpdateService extends Service {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
+
+    //Android 8.0以上的设备会必须在五秒内运行startForeground方法
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void setForegroundNotification() {
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        String channelId = "access_log_channel";
+        NotificationChannel channel = new NotificationChannel(channelId, "channel_1",
+                NotificationManager.IMPORTANCE_DEFAULT);
+
+        nm.createNotificationChannel(channel);
+
+        Notification notification = new Notification.Builder(this).setChannelId(channelId)
+                .build();
+        startForeground(1, notification);
+    }
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -57,8 +79,19 @@ public class WidgetUpdateService extends Service {
         remoteViews = new RemoteViews(getPackageName(), R.layout.widget);
         manager = AppWidgetManager.getInstance(getApplicationContext());
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        timer = new Timer();
-        timer1 = new Timer();
+        //Android 8.0以上的设备会必须在五秒内运行startForeground方法
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            setForegroundNotification();
+//            Notification status = new Notification.Builder(WidgetUpdateService.this).setChannelId(WidgetUpdateService.ALARM_SERVICE).build();
+//            startForeground(1,status);
+        }
+
+
+        //休眠唤醒问题
+//        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+//        PowerManager.WakeLock wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
+
         HttpRequest.getWeatherInfo(loc, new CallBackListener<WeatherBean.HeWeather6Bean>() {
             @Override
             public void onSuccess(WeatherBean.HeWeather6Bean heWeather6Bean) {
@@ -82,9 +115,27 @@ public class WidgetUpdateService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        remoteViews.setTextViewText(R.id.widget_now_temperature, "" + nowWeather1 + "°");
-        remoteViews.setTextViewText(R.id.widget_now_weather_loc, location1);
-        remoteViews.setTextViewText(R.id.widget_now_weather_status, cond_txt1);
+        timer = new Timer();
+        timer1 = new Timer();
+        HttpRequest.getWeatherInfo(loc, new CallBackListener<WeatherBean.HeWeather6Bean>() {
+            @Override
+            public void onSuccess(WeatherBean.HeWeather6Bean heWeather6Bean) {
+                nowWeather1 = heWeather6Bean.getNow().getTmp();
+                location1 = heWeather6Bean.getBasic().getLocation();
+                cond_txt1 = heWeather6Bean.getNow().getCond_txt();
+                remoteViews.setTextViewText(R.id.widget_now_temperature, "" + nowWeather1 + "°");
+                remoteViews.setTextViewText(R.id.widget_now_weather_loc, location1);
+                remoteViews.setTextViewText(R.id.widget_now_weather_status, cond_txt1);
+                manager.updateAppWidget(componentName, remoteViews);
+
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
+
         //时间
         task = new TimerTask() {
             @Override
@@ -116,8 +167,7 @@ public class WidgetUpdateService extends Service {
                 manager.updateAppWidget(componentName, remoteViews);
             }
         };
-        timer1.schedule(task1, 0, 600000);
-
+        timer1.schedule(task1, 0, 300000);
 //        //获取天气详情
 //        HttpRequest.getWeatherInfo("jiaozhou", new CallBackListener<WeatherBean.HeWeather6Bean>() {
 //            @Override
@@ -146,6 +196,7 @@ public class WidgetUpdateService extends Service {
 //         * AlarmManager.POWER_OFF_WAKEUP表示闹钟在手机关机状态下也能正常进行提示功能，所以是5个状态中用的最多的状态之一，该状态下闹钟也是用绝对时间，状态值为4；不过本状态好像受SDK版本影响，某些版本并不支持；
 //         */
 //        manager.setRepeating(AlarmManager.ELAPSED_REALTIME,time,600000,mPi);
+        flags = START_REDELIVER_INTENT;
         return super.onStartCommand(intent, flags, startId);
 
 
@@ -186,4 +237,6 @@ public class WidgetUpdateService extends Service {
         timer1 = null;
         task1 = null;
     }
+
+
 }

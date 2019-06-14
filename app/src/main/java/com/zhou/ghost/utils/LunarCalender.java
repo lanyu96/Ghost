@@ -307,7 +307,7 @@ public class LunarCalender {
         String Festival = getFestival(year,month,day);
         //return lunY+"-"+lunM+"-"+lunD+"-"+animalsYear(animalsYear);
 //        return "农历 "+lunM+lunD+" "+Festival;
-        return ""+lunM+" "+lunD+" ";
+        return ""+lunM+""+lunD+" ";
     }
     /*
      * 将公历year年month月day日转换成农历

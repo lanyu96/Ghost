@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.zhou.ghost"
     android:versionCode="1"
-    android:versionName="1.2.5">
+    android:versionName="1.2.9">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -75,7 +75,14 @@
         <activity android:name=".ui.view.tool.BirthdayViewActivity" />
         <activity android:name=".ui.view.tool.BirthdayShowViewActivity" />
 
-        <service android:name=".ui.view.widget.WidgetUpdateService" />
+        <service android:name=".ui.view.widget.WidgetUpdateService">
+            <!--<intent-filter  android:priority="1000">-->
+                <!--<action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />-->
+
+            <!--</intent-filter>-->
+        </service>
+
+
     </application>
 
 </manifest>

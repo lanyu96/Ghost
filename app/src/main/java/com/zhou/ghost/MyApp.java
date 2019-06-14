@@ -13,9 +13,7 @@ import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.util.TypedValue;
 
-
 import com.zhou.ghost.utils.util.PreferencesService;
-
 import com.zhou.ghost.utils.util.ToastUtils;
 
 
@@ -31,9 +29,13 @@ public class MyApp extends Application {
     private static TypedValue typedValue ;
 
 
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+
+
 
         instance = this;//获取myApp单列
         preferencesService = new PreferencesService(this);//初始化sp工具类

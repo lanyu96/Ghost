@@ -100,10 +100,10 @@ public class MainHomeViewFrag extends BaseFragment<MainHomePresenterImpl> implem
 //        image.add(R.drawable.icon);
 //        image.add(R.drawable.welcome_bg);
         urlStr = new ArrayList<>();
-        urlStr.add("http://47.110.9.80:8080/lanyu/img/img1.jpg");
-        urlStr.add("http://47.110.9.80:8080/lanyu/img/img2.jpg");
-        urlStr.add("http://47.110.9.80:8080/lanyu/img/img3.jpg");
-        urlStr.add("http://47.110.9.80:8080/lanyu/img/img4.jpg");
+        urlStr.add("http://39.106.92.128:8080/lanyu/img/img1.jpg");
+        urlStr.add("http://39.106.92.128:8080/lanyu/img/img2.jpg");
+        urlStr.add("http://39.106.92.128:8080/lanyu/img/img3.jpg");
+        urlStr.add("http://39.106.92.128:8080/lanyu/img/img4.jpg");
 
 
         banner.setImages(urlStr);
